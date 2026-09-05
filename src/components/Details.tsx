@@ -2,9 +2,8 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import { SectionHead } from './SectionHead';
-import { Vows } from './Vows';
-import { reception } from '../images';
-import { CocktailIcon, MusicIcon, HouseIcon } from './Icons';
+import { ceremony, reception, venue } from '../images';
+import { CrownIcon, PinIcon, CocktailIcon, MusicIcon } from './Icons';
 
 export function Details() {
   useLingui();
@@ -14,47 +13,101 @@ export function Details() {
       <div className="container">
         <SectionHead
           titleId="details-title"
-          eyebrow={<Trans>the celebration</Trans>}
+          eyebrow={<Trans>the day</Trans>}
           title={<Trans>The Details</Trans>}
           intro={
-            <Trans>One estate, one unforgettable evening. Here is everything you need to know about the day itself.</Trans>
+            <Trans>One day in Berlin, three beautiful chapters. Here is everything you need to know.</Trans>
           }
         />
 
         <div className="detail-grid">
-          <Vows />
-
           <article className="detail-card reveal">
             <div className="detail-frame">
-              <img src={reception} alt={t`Long banquet table set for a candlelit reception`} loading="lazy" />
+              <img src={ceremony} alt={t`Registry office in Berlin Mitte`} loading="lazy" />
               <span className="tag">
-                <Trans>Reception</Trans>
+                <Trans>Ceremony</Trans>
               </span>
             </div>
             <div className="detail-body">
               <h3>
-                <Trans>The Feast</Trans>
+                <Trans>The Ceremony</Trans>
               </h3>
               <p className="place">
-                <Trans>The Vine Barn &amp; Terrace</Trans>
+                <Trans>Standesamt Berlin Mitte</Trans>
+              </p>
+              <ul className="detail-list">
+                <li>
+                  <CrownIcon />
+                  <span>
+                    <Trans>10:45 — registry office in Berlin Mitte</Trans>
+                  </span>
+                </li>
+                <li>
+                  <PinIcon />
+                  <span>
+                    <Trans>Parochialstraße 3, 10179 Berlin</Trans>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article className="detail-card reveal">
+            <div className="detail-frame">
+              <img src={reception} alt={t`Brunch at Sag mir wo die Blumen sind`} loading="lazy" />
+              <span className="tag">
+                <Trans>Brunch</Trans>
+              </span>
+            </div>
+            <div className="detail-body">
+              <h3>
+                <Trans>The Brunch</Trans>
+              </h3>
+              <p className="place">
+                <Trans>'Sag mir wo die Blumen sind'</Trans>
               </p>
               <ul className="detail-list">
                 <li>
                   <CocktailIcon />
                   <span>
-                    <Trans>Cocktails 5:00 PM · Dinner 6:30 PM</Trans>
+                    <Trans>12:30 — brunch with sparkling wine</Trans>
                   </span>
                 </li>
+                <li>
+                  <PinIcon />
+                  <span>
+                    <Trans>Albrechtstraße 9, 10117 Berlin</Trans>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article className="detail-card reveal">
+            <div className="detail-frame">
+              <img src={venue} alt={t`Celebration at Restaurant Whitebird`} loading="lazy" />
+              <span className="tag">
+                <Trans>Celebration</Trans>
+              </span>
+            </div>
+            <div className="detail-body">
+              <h3>
+                <Trans>The Celebration</Trans>
+              </h3>
+              <p className="place">
+                <Trans>Restaurant 'Whitebird'</Trans>
+              </p>
+              <ul className="detail-list">
                 <li>
                   <MusicIcon />
                   <span>
-                    <Trans>Dancing until midnight with The Velvet Hours</Trans>
+                    <Trans>5:00 PM — the wedding celebration</Trans>
                   </span>
                 </li>
                 <li>
-                  <HouseIcon />
+                  <PinIcon />
                   <span>
-                    <Trans>Seated dinner, open bar &amp; late-night bites</Trans>
+                    <Trans>Albrechtstraße 18, 10117 Berlin</Trans>
                   </span>
                 </li>
               </ul>
@@ -66,7 +119,7 @@ export function Details() {
           <strong>
             <Trans>Dress code:</Trans>
           </strong>{' '}
-          <Trans>Garden formal — think soft linens, florals and heels that survive a lawn. The evenings in Sonoma turn cool, so bring a wrap.</Trans>
+          <Trans>Festive elegant — red and black are welcome.</Trans>
         </p>
       </div>
     </section>

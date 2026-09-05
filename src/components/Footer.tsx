@@ -3,19 +3,17 @@ import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import { FloralBranch } from './FloralBranch';
 
-const FOOTER_SECTIONS = ['details', 'gallery', 'party', 'travel'] as const;
+const FOOTER_SECTIONS = ['details', 'gallery'] as const;
 
 export function Footer() {
   const { i18n } = useLingui();
 
   const labels = {
     details: t`Details`,
-    gallery: t`Gallery`,
-    party: t`The Party`,
-    travel: t`Travel`
+    gallery: t`Gallery`
   };
 
-  const weddingDate = new Date('2026-12-11T16:00:00');
+  const weddingDate = new Date('2026-12-11T10:45:00');
 
   return (
     <footer className="site-footer">
@@ -27,7 +25,7 @@ export function Footer() {
           Raquel &amp; Jean-Paul
         </p>
         <p className="footer-date">
-          {i18n.date(weddingDate, { year: 'numeric', month: 'long', day: 'numeric' })} — <Trans>Sonoma Valley</Trans>
+          {i18n.date(weddingDate, { year: 'numeric', month: 'long', day: 'numeric' })} — <Trans>Berlin</Trans>
         </p>
         <p className="footer-hash">#EverAndAlways</p>
 

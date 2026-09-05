@@ -4,7 +4,7 @@ import { t } from '@lingui/core/macro';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 
-const NAV_SECTIONS = ['home', 'details', 'gallery', 'party', 'travel'] as const;
+const NAV_SECTIONS = ['home', 'details', 'gallery'] as const;
 
 type HeaderProps = {
   days: number;
@@ -20,9 +20,7 @@ export function Header({ days }: HeaderProps) {
   const labels = {
     home: t`Home`,
     details: t`Details`,
-    gallery: t`Gallery`,
-    party: t`The Party`,
-    travel: t`Travel`
+    gallery: t`Gallery`
   };
 
   useEffect(() => {

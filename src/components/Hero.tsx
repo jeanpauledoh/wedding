@@ -4,7 +4,7 @@ import { t } from '@lingui/core/macro';
 import type { TimeRemaining } from '../hooks/useCountdown';
 import { FloralBranch } from './FloralBranch';
 
-const WEDDING_DATE = new Date('2026-12-11T16:00:00');
+const WEDDING_DATE = new Date('2026-12-11T10:45:00');
 
 const pad = (n: number) => (n < 10 ? `0${n}` : String(n));
 
@@ -30,7 +30,7 @@ export function Hero({ remaining }: HeroProps) {
       </div>
       <div className="hero__inner">
         <p className="hero__pre">
-          <Trans>Together with their families</Trans>
+          <Trans>Together with family and friends</Trans>
         </p>
         <h1 className="hero__names">
           Raquel<span className="amp">&amp;</span>Jean-Paul
@@ -39,7 +39,7 @@ export function Hero({ remaining }: HeroProps) {
           {weekdayMonthDay} <span>&bull;</span> {year}
         </p>
         <p className="hero__venue">
-          <Trans>Fernwood Estate — Sonoma Valley, California</Trans>
+          <Trans>Berlin</Trans>
         </p>
 
         <div className="countdown" aria-label={t`Countdown to the wedding`}>

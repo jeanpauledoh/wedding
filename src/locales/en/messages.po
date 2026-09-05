@@ -13,59 +13,84 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/Details.tsx
+msgid "'Sag mir wo die Blumen sind'"
+msgstr "'Sag mir wo die Blumen sind'"
+
+#: src/components/Details.tsx
+msgid "10:45 — registry office in Berlin Mitte"
+msgstr "10:45 — registry office in Berlin Mitte"
+
+#: src/components/Details.tsx
+msgid "12:30 — brunch with sparkling wine"
+msgstr "12:30 — brunch with sparkling wine"
+
 #: src/components/Footer.tsx
 msgid "2026 Raquel & Jean-Paul. Made with love."
 msgstr "2026 Raquel & Jean-Paul. Made with love."
 
-#: src/components/Vows.tsx
-msgid "4:00 PM — arrival & seating from 3:30 PM"
-msgstr "4:00 PM — arrival & seating from 3:30 PM"
-
-#: src/components/Travel.tsx
-msgid "4200 Bennett Valley Road, Sonoma Valley, CA 95404. Gated parking and a complimentary shuttle from The Larkspur Inn run every 30 minutes from 3:00 PM."
-msgstr "4200 Bennett Valley Road, Sonoma Valley, CA 95404. Gated parking and a complimentary shuttle from The Larkspur Inn run every 30 minutes from 3:00 PM."
-
-#: src/components/Travel.tsx
-msgid "A charming, budget-friendly option a short drive into town with free breakfast."
-msgstr "A charming, budget-friendly option a short drive into town with free breakfast."
+#: src/components/Details.tsx
+msgid "5:00 PM — the wedding celebration"
+msgstr "5:00 PM — the wedding celebration"
 
 #: src/components/Gallery.tsx
 msgid "A few of our favourite frames from the last seven years — and a hint of what the day will feel like."
 msgstr "A few of our favourite frames from the last seven years — and a hint of what the day will feel like."
 
-#: src/components/Registry.tsx
-msgid "A little toward the garden, the porch swing, and that lemon tree we keep talking about."
-msgstr "A little toward the garden, the porch swing, and that lemon tree we keep talking about."
+#: src/components/OptionalDay.tsx
+msgid "A walk through the gardens"
+msgstr "A walk through the gardens"
 
-#: src/components/Vows.tsx
-msgid "A short outdoor ceremony, around 30 minutes"
-msgstr "A short outdoor ceremony, around 30 minutes"
+#: src/components/Details.tsx
+msgid "Albrechtstraße 18, 10117 Berlin"
+msgstr "Albrechtstraße 18, 10117 Berlin"
 
-#: src/components/Travel.tsx
-msgid "Bedroom at Vine Street Guesthouse"
-msgstr "Bedroom at Vine Street Guesthouse"
+#: src/components/Details.tsx
+msgid "Albrechtstraße 9, 10117 Berlin"
+msgstr "Albrechtstraße 9, 10117 Berlin"
 
-#: src/components/Party.tsx
-msgid "Best Man"
-msgstr "Best Man"
+#: src/components/Gallery.tsx
+msgid "An estate glowing at golden hour"
+msgstr "An estate glowing at golden hour"
 
-#: src/components/Travel.tsx
-msgid "Book a room"
-msgstr "Book a room"
+#: src/components/OptionalDay.tsx
+msgid "An optional little extra for anyone who would love to spend more time together."
+msgstr "An optional little extra for anyone who would love to spend more time together."
+
+#: src/components/Footer.tsx
+#: src/components/Hero.tsx
+msgid "Berlin"
+msgstr "Berlin"
+
+#: src/components/OptionalDay.tsx
+msgid "Botanischer Garten Berlin"
+msgstr "Botanischer Garten Berlin"
 
 #: src/components/Hero.tsx
 msgid "Bridal bouquet of garden roses on a linen table"
 msgstr "Bridal bouquet of garden roses on a linen table"
 
-#: src/components/Party.tsx
-msgid "Bridesmaid"
-msgstr "Bridesmaid"
+#: src/components/Details.tsx
+msgid "Brunch"
+msgstr "Brunch"
 
-#: src/components/Party.tsx
-msgid "by our side"
-msgstr "by our side"
+#: src/components/Details.tsx
+msgid "Brunch at Sag mir wo die Blumen sind"
+msgstr "Brunch at Sag mir wo die Blumen sind"
 
-#: src/components/Vows.tsx
+#: src/components/RSVP.tsx
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/components/Details.tsx
+msgid "Celebration"
+msgstr "Celebration"
+
+#: src/components/Details.tsx
+msgid "Celebration at Restaurant Whitebird"
+msgstr "Celebration at Restaurant Whitebird"
+
+#: src/components/Details.tsx
 msgid "Ceremony"
 msgstr "Ceremony"
 
@@ -77,25 +102,9 @@ msgstr "Close menu"
 msgid "Close-up of blush garden roses in bloom"
 msgstr "Close-up of blush garden roses in bloom"
 
-#: src/components/Details.tsx
-msgid "Cocktails 5:00 PM · Dinner 6:30 PM"
-msgstr "Cocktails 5:00 PM · Dinner 6:30 PM"
-
-#: src/components/Registry.tsx
-msgid "Contribute"
-msgstr "Contribute"
-
-#: src/components/Registry.tsx
-msgid "Contribute to the honeymoon fund"
-msgstr "Contribute to the honeymoon fund"
-
 #: src/components/Hero.tsx
 msgid "Countdown to the wedding"
 msgstr "Countdown to the wedding"
-
-#: src/components/Details.tsx
-msgid "Dancing until midnight with The Velvet Hours"
-msgstr "Dancing until midnight with The Velvet Hours"
 
 #: src/components/Hero.tsx
 msgid "Days"
@@ -118,79 +127,15 @@ msgstr "Dress code:"
 msgid "Elegant table setting with gold flatware and taper candles"
 msgstr "Elegant table setting with gold flatware and taper candles"
 
-#: src/components/Travel.tsx
-msgid "Fernwood Estate"
-msgstr "Fernwood Estate"
-
-#: src/components/Hero.tsx
-msgid "Fernwood Estate — Sonoma Valley, California"
-msgstr "Fernwood Estate — Sonoma Valley, California"
-
-#: src/components/Gallery.tsx
-msgid "Fernwood Estate glowing at golden hour"
-msgstr "Fernwood Estate glowing at golden hour"
-
-#: src/components/Travel.tsx
-msgid "Fernwood Estate sits about an hour north of San Francisco. Make a weekend of it — the valley is at its best in September."
-msgstr "Fernwood Estate sits about an hour north of San Francisco. Make a weekend of it — the valley is at its best in September."
-
-#: src/components/Travel.tsx
-msgid "Fernwood Estate surrounded by vineyards at dusk"
-msgstr "Fernwood Estate surrounded by vineyards at dusk"
-
-#: src/components/Vows.tsx
-msgid "Floral ceremony arch beneath an old oak tree"
-msgstr "Floral ceremony arch beneath an old oak tree"
-
-#: src/components/Travel.tsx
-msgid "Flying in?"
-msgstr "Flying in?"
-
-#: src/components/Travel.tsx
-msgid "From $165 / night"
-msgstr "From $165 / night"
-
-#: src/components/Travel.tsx
-msgid "From $210 / night"
-msgstr "From $210 / night"
+#: src/components/Details.tsx
+msgid "Festive elegant — red and black are welcome."
+msgstr "Festive elegant — red and black are welcome."
 
 #: src/components/Footer.tsx
 #: src/components/Header.tsx
 #: src/components/Hero.tsx
 msgid "Gallery"
 msgstr "Gallery"
-
-#: src/components/Details.tsx
-msgid "Garden formal — think soft linens, florals and heels that survive a lawn. The evenings in Sonoma turn cool, so bring a wrap."
-msgstr "Garden formal — think soft linens, florals and heels that survive a lawn. The evenings in Sonoma turn cool, so bring a wrap."
-
-#: src/components/Travel.tsx
-msgid "getting there"
-msgstr "getting there"
-
-#: src/components/Vows.tsx
-msgid "Getting there"
-msgstr "Getting there"
-
-#: src/components/Registry.tsx
-msgid "Gift Registry"
-msgstr "Gift Registry"
-
-#: src/components/Registry.tsx
-msgid "Give a little"
-msgstr "Give a little"
-
-#: src/components/Registry.tsx
-msgid "Give to the cottage fund"
-msgstr "Give to the cottage fund"
-
-#: src/components/Party.tsx
-msgid "Groomsman"
-msgstr "Groomsman"
-
-#: src/components/Registry.tsx
-msgid "Help us chase the sunset in Amalfi — a dinner, a boat ride, a night under the stars."
-msgstr "Help us chase the sunset in Amalfi — a dinner, a boat ride, a night under the stars."
 
 #: src/components/Header.tsx
 msgid "Home"
@@ -200,29 +145,17 @@ msgstr "Home"
 msgid "Hours"
 msgstr "Hours"
 
-#: src/components/Party.tsx
-msgid "Jean-Paul's college roommate and partner in every questionable road-trip decision since 2014."
-msgstr "Jean-Paul's college roommate and partner in every questionable road-trip decision since 2014."
+#: src/components/OptionalDay.tsx
+msgid "if you feel like it"
+msgstr "if you feel like it"
 
-#: src/components/Party.tsx
-msgid "Jean-Paul's younger brother, official ring-bearer wrangler and unofficial dance-floor starter."
-msgstr "Jean-Paul's younger brother, official ring-bearer wrangler and unofficial dance-floor starter."
-
-#: src/components/Registry.tsx
-msgid "Linens, stoneware and the slow, lovely things that make a house a home."
-msgstr "Linens, stoneware and the slow, lovely things that make a house a home."
+#: src/components/OptionalDay.tsx
+msgid "Königin-Luise-Straße 6-8, 14195 Berlin"
+msgstr "Königin-Luise-Straße 6-8, 14195 Berlin"
 
 #: src/components/Gallery.tsx
 msgid "Little Glimpses"
 msgstr "Little Glimpses"
-
-#: src/components/Details.tsx
-msgid "Long banquet table set for a candlelit reception"
-msgstr "Long banquet table set for a candlelit reception"
-
-#: src/components/Party.tsx
-msgid "Maid of Honor"
-msgstr "Maid of Honor"
 
 #: src/components/Hero.tsx
 msgid "Minutes"
@@ -232,57 +165,29 @@ msgstr "Minutes"
 msgid "moments"
 msgstr "moments"
 
-#: src/components/Party.tsx
-msgid "Neighbour turned family, and the reason Raquel and Jean-Paul ever went on that first double date."
-msgstr "Neighbour turned family, and the reason Raquel and Jean-Paul ever went on that first double date."
-
-#: src/components/Registry.tsx
-msgid "Nell & Rye Home"
-msgstr "Nell & Rye Home"
-
 #: src/components/Details.tsx
-msgid "One estate, one unforgettable evening. Here is everything you need to know about the day itself."
-msgstr "One estate, one unforgettable evening. Here is everything you need to know about the day itself."
-
-#: src/components/Travel.tsx
-msgid "Open in Maps"
-msgstr "Open in Maps"
+msgid "One day in Berlin, three beautiful chapters. Here is everything you need to know."
+msgstr "One day in Berlin, three beautiful chapters. Here is everything you need to know."
 
 #: src/components/Header.tsx
 msgid "Open menu"
 msgstr "Open menu"
 
-#: src/components/Travel.tsx
-msgid "Our room block — 8 minutes from Fernwood. Use code EVERLY26 by Aug 1."
-msgstr "Our room block — 8 minutes from Fernwood. Use code EVERLY26 by Aug 1."
+#: src/components/OptionalDay.tsx
+msgid "Optional"
+msgstr "Optional"
 
 #: src/components/Gallery.tsx
 msgid "Pair of gold wedding bands on a velvet cushion"
 msgstr "Pair of gold wedding bands on a velvet cushion"
 
-#: src/components/Party.tsx
-msgid "Portrait of Daniel Reyes"
-msgstr "Portrait of Daniel Reyes"
+#: src/components/Details.tsx
+msgid "Parochialstraße 3, 10179 Berlin"
+msgstr "Parochialstraße 3, 10179 Berlin"
 
-#: src/components/Party.tsx
-msgid "Portrait of Hannah Cole"
-msgstr "Portrait of Hannah Cole"
-
-#: src/components/Party.tsx
-msgid "Portrait of Marcus Bell"
-msgstr "Portrait of Marcus Bell"
-
-#: src/components/Party.tsx
-msgid "Portrait of Priya Anand"
-msgstr "Portrait of Priya Anand"
-
-#: src/components/Party.tsx
-msgid "Portrait of Sofia Marlow"
-msgstr "Portrait of Sofia Marlow"
-
-#: src/components/Party.tsx
-msgid "Portrait of Theo Nakamura"
-msgstr "Portrait of Theo Nakamura"
+#: src/components/RSVP.tsx
+msgid "Please let us know by November 1, 2026 whether you can celebrate with us."
+msgstr "Please let us know by November 1, 2026 whether you can celebrate with us."
 
 #: src/components/Header.tsx
 msgid "Primary"
@@ -296,149 +201,95 @@ msgstr "Raquel and Jean-Paul — home"
 msgid "Raquel and Jean-Paul are getting married"
 msgstr "Raquel and Jean-Paul are getting married"
 
-#: src/components/Party.tsx
-msgid "Raquel's sister, chief cheerleader, and the only person allowed to give a speech longer than five minutes."
-msgstr "Raquel's sister, chief cheerleader, and the only person allowed to give a speech longer than five minutes."
+#: src/components/Details.tsx
+msgid "Registry office in Berlin Mitte"
+msgstr "Registry office in Berlin Mitte"
 
 #: src/components/Details.tsx
-msgid "Reception"
-msgstr "Reception"
+msgid "Restaurant 'Whitebird'"
+msgstr "Restaurant 'Whitebird'"
 
 #: src/components/Gallery.tsx
-msgid "Rows of vines across a Sonoma valley vineyard"
-msgstr "Rows of vines across a Sonoma valley vineyard"
+msgid "Rows of vines across a vineyard"
+msgstr "Rows of vines across a vineyard"
 
-#: src/components/Travel.tsx
-msgid "San Francisco (SFO) is 75 minutes away; Oakland (OAK) and Santa Rosa (STS) are closer for domestic hops. We recommend renting a car — or joining the group shuttle from the inn."
-msgstr "San Francisco (SFO) is 75 minutes away; Oakland (OAK) and Santa Rosa (STS) are closer for domestic hops. We recommend renting a car — or joining the group shuttle from the inn."
+#: src/components/RSVP.tsx
+msgid "RSVP"
+msgstr "RSVP"
+
+#: src/components/RSVP.tsx
+msgid "RSVP by email"
+msgstr "RSVP by email"
+
+#: src/components/OptionalDay.tsx
+msgid "Saturday, December 12, 2026 at 11:00 AM"
+msgstr "Saturday, December 12, 2026 at 11:00 AM"
 
 #: src/components/Hero.tsx
 msgid "Scroll to the details"
 msgstr "Scroll to the details"
 
-#: src/components/Details.tsx
-msgid "Seated dinner, open bar & late-night bites"
-msgstr "Seated dinner, open bar & late-night bites"
-
 #: src/components/Hero.tsx
 msgid "Seconds"
 msgstr "Seconds"
+
+#: src/components/RSVP.tsx
+msgid "Send"
+msgstr "Send"
 
 #: src/App.tsx
 msgid "Skip to content"
 msgstr "Skip to content"
 
-#: src/components/Footer.tsx
-msgid "Sonoma Valley"
-msgstr "Sonoma Valley"
-
-#: src/components/Travel.tsx
-msgid "Suite at The Larkspur Inn"
-msgstr "Suite at The Larkspur Inn"
+#: src/components/Details.tsx
+msgid "Standesamt Berlin Mitte"
+msgstr "Standesamt Berlin Mitte"
 
 #: src/components/Details.tsx
-msgid "the celebration"
-msgstr "the celebration"
+msgid "The Brunch"
+msgstr "The Brunch"
 
-#: src/components/Registry.tsx
-msgid "The Cottage Fund"
-msgstr "The Cottage Fund"
+#: src/components/Details.tsx
+msgid "The Celebration"
+msgstr "The Celebration"
 
-#: src/components/Party.tsx
-msgid "The dearest friends and family who have carried us here — and who will be standing with us on the day."
-msgstr "The dearest friends and family who have carried us here — and who will be standing with us on the day."
+#: src/components/Details.tsx
+msgid "The Ceremony"
+msgstr "The Ceremony"
+
+#: src/components/Details.tsx
+msgid "the day"
+msgstr "the day"
+
+#: src/components/OptionalDay.tsx
+msgid "The Day After"
+msgstr "The Day After"
 
 #: src/components/Details.tsx
 #: src/components/Hero.tsx
 msgid "The Details"
 msgstr "The Details"
 
-#: src/components/Details.tsx
-msgid "The Feast"
-msgstr "The Feast"
-
-#: src/components/Party.tsx
-msgid "The friend who answers the phone at 2 a.m. and shows up with snacks by 2:20."
-msgstr "The friend who answers the phone at 2 a.m. and shows up with snacks by 2:20."
-
-#: src/components/Registry.tsx
-msgid "The Honeymoon Fund"
-msgstr "The Honeymoon Fund"
-
-#: src/components/Travel.tsx
-msgid "The Larkspur Inn"
-msgstr "The Larkspur Inn"
-
-#: src/components/Vows.tsx
-msgid "The Oak Lawn, Fernwood Estate"
-msgstr "The Oak Lawn, Fernwood Estate"
-
-#: src/components/Footer.tsx
-#: src/components/Header.tsx
-msgid "The Party"
-msgstr "The Party"
-
-#: src/components/Party.tsx
-msgid "The steady one — first to arrive, last to leave, and keeper of every emergency safety pin."
-msgstr "The steady one — first to arrive, last to leave, and keeper of every emergency safety pin."
-
-#: src/components/Travel.tsx
-msgid "The Venue"
-msgstr "The Venue"
-
-#: src/components/Details.tsx
-msgid "The Vine Barn & Terrace"
-msgstr "The Vine Barn & Terrace"
-
-#: src/components/Vows.tsx
-msgid "The Vows"
-msgstr "The Vows"
-
-#: src/components/Party.tsx
-msgid "The Wedding Party"
-msgstr "The Wedding Party"
-
 #: src/components/Gallery.tsx
 msgid "Three-tier naked wedding cake dressed with flowers"
 msgstr "Three-tier naked wedding cake dressed with flowers"
 
 #: src/components/Hero.tsx
-msgid "Together with their families"
-msgstr "Together with their families"
-
-#: src/components/Footer.tsx
-#: src/components/Header.tsx
-msgid "Travel"
-msgstr "Travel"
-
-#: src/components/Travel.tsx
-msgid "Travel & Stay"
-msgstr "Travel & Stay"
-
-#: src/components/Vows.tsx
-msgid "Under the Grand Oak"
-msgstr "Under the Grand Oak"
-
-#: src/components/Registry.tsx
-msgid "View registry"
-msgstr "View registry"
-
-#: src/components/Registry.tsx
-msgid "View the Nell and Rye Home registry"
-msgstr "View the Nell and Rye Home registry"
-
-#: src/components/Travel.tsx
-msgid "Vine Street Guesthouse"
-msgstr "Vine Street Guesthouse"
+msgid "Together with family and friends"
+msgstr "Together with family and friends"
 
 #: src/components/Gallery.tsx
 msgid "Warm candlelight glowing across a dinner table"
 msgstr "Warm candlelight glowing across a dinner table"
 
-#: src/components/Registry.tsx
-msgid "with gratitude"
-msgstr "with gratitude"
+#: src/components/RSVP.tsx
+msgid "Your message"
+msgstr "Your message"
 
-#: src/components/Registry.tsx
-msgid "Your presence is the only present we need — but for those who've asked, here is where we're dreaming."
-msgstr "Your presence is the only present we need — but for those who've asked, here is where we're dreaming."
+#: src/components/RSVP.tsx
+msgid "Your message…"
+msgstr "Your message…"
+
+#: src/components/RSVP.tsx
+msgid "your reply"
+msgstr "your reply"

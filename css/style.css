@@ -427,7 +427,7 @@ body::before {
 /* =====================================================================
    The Details — ceremony & reception
    ===================================================================== */
-.detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1.5rem, 4vw, 3rem); }
+.detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 4vw, 3rem); }
 .detail-card {
   background: #fff;
   border: 1px solid var(--blush-deep);
@@ -575,6 +575,105 @@ body::before {
 .travel-note strong { color: var(--ink); font-weight: 500; }
 
 /* =====================================================================
+   RSVP — modal
+   ===================================================================== */
+.rsvp-actions { display: flex; justify-content: center; margin-top: 1rem; }
+.rsvp-actions .btn-ec svg { width: 18px; height: 18px; }
+
+.rsvp-dialog {
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--ivory);
+  color: var(--ink);
+  box-shadow: var(--shadow-md);
+  padding: 2rem 1.8rem 1.9rem;
+  width: min(92vw, 480px);
+  margin: auto;
+}
+.rsvp-dialog::backdrop {
+  background: rgba(21, 30, 42, .55);
+}
+.rsvp-dialog h3 { font-size: 1.9rem; margin-bottom: .4rem; }
+.rsvp-dialog .rsvp-hint { color: var(--muted); font-size: .9rem; margin-bottom: 1.2rem; }
+.rsvp-form { display: flex; flex-direction: column; gap: 1.1rem; }
+.rsvp-field { display: block; }
+.rsvp-field textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: .9rem 1rem;
+  border: 1px solid var(--blush-deep);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--ff-body);
+  font-size: .95rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+.rsvp-field textarea:focus {
+  outline: none;
+  border-color: var(--gold-soft);
+  box-shadow: 0 0 0 2px var(--gold-soft);
+}
+.rsvp-modal-actions { display: flex; justify-content: flex-end; gap: .8rem; }
+.rsvp-modal-actions .btn-ec svg { width: 18px; height: 18px; }
+@media (max-width: 420px) {
+  .rsvp-modal-actions { flex-direction: column-reverse; }
+  .rsvp-modal-actions .btn-ec { width: 100%; justify-content: center; }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =====================================================================
+   Optional day
+   ===================================================================== */
+.optional-card {
+  display: flex;
+  gap: clamp(1.2rem, 3vw, 2rem);
+  align-items: stretch;
+  background: var(--ivory);
+  border: 1px solid var(--blush-deep);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  max-width: 860px;
+  margin: 0 auto;
+}
+.optional-frame { position: relative; width: 46%; flex: none; min-height: 260px; background: var(--blush-deep); }
+.optional-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.optional-body { padding: 2rem 2rem 2.2rem; display: flex; flex-direction: column; justify-content: center; }
+.optional-body h3 { font-size: 1.8rem; margin-bottom: .3rem; }
+.optional-body .place { font-family: var(--ff-display); font-size: 1.1rem; color: var(--gold); font-style: italic; margin-bottom: .9rem; }
+.optional-body p { color: var(--muted); font-size: .92rem; margin: 0 0 .4rem; }
+.optional-body .detail-list { margin-bottom: 0; }
+.optional-tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--sage-deep);
+  color: #fff;
+  font-family: var(--ff-body);
+  font-size: .66rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  padding: .35rem .85rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+  .optional-card { flex-direction: column; }
+  .optional-frame { width: 100%; min-height: 200px; }
+}
+
+/* =====================================================================
    Footer
    ===================================================================== */
 .site-footer {
@@ -678,6 +777,8 @@ body::before {
   .gallery-grid { grid-template-columns: repeat(3, 1fr); }
   .party-grid { grid-template-columns: repeat(2, 1fr); }
   .travel-grid { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: repeat(2, 1fr); }
+  .detail-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
   .nav-menu { gap: 1.15rem; }
   .nav-menu a { font-size: .7rem; letter-spacing: .13em; }
   .count-chip { display: none; }

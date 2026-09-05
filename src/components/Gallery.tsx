@@ -11,10 +11,10 @@ export function Gallery() {
     { src: gallery1, className: 'g-tall', alt: t`Close-up of blush garden roses in bloom` },
     { src: gallery6, className: 'g-wide', alt: t`Elegant table setting with gold flatware and taper candles` },
     { src: gallery3, className: '', alt: t`Pair of gold wedding bands on a velvet cushion` },
-    { src: gallery5, className: '', alt: t`Rows of vines across a Sonoma valley vineyard` },
+    { src: gallery5, className: '', alt: t`Rows of vines across a vineyard` },
     { src: gallery2, className: 'g-tall', alt: t`Three-tier naked wedding cake dressed with flowers` },
     { src: gallery4, className: '', alt: t`Warm candlelight glowing across a dinner table` },
-    { src: venue, className: 'g-wide', alt: t`Fernwood Estate glowing at golden hour` }
+    { src: venue, className: 'g-wide', alt: t`An estate glowing at golden hour` }
   ];
 
   return (
