@@ -2,6 +2,7 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import type { TimeRemaining } from '../hooks/useCountdown';
+import { FloralBranch } from './FloralBranch';
 
 const WEDDING_DATE = new Date('2026-12-11T16:00:00');
 
@@ -24,6 +25,9 @@ export function Hero({ remaining }: HeroProps) {
   return (
     <section className="hero" id="home" aria-label={t`Raquel and Jean-Paul are getting married`}>
       <div className="hero__bg" role="img" aria-label={t`Bridal bouquet of garden roses on a linen table`} />
+      <div className="hero__floral" aria-hidden="true">
+        <FloralBranch mirror />
+      </div>
       <div className="hero__inner">
         <p className="hero__pre">
           <Trans>Together with their families</Trans>

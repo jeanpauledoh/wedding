@@ -1,6 +1,7 @@
 import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
+import { FloralBranch } from './FloralBranch';
 
 const FOOTER_SECTIONS = ['details', 'gallery', 'party', 'travel'] as const;
 
@@ -19,6 +20,9 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
+        <div className="footer-floral" aria-hidden="true">
+          <FloralBranch />
+        </div>
         <p className="footer-monogram">
           Raquel &amp; Jean-Paul
         </p>
