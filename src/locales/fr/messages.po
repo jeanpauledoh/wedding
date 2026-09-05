@@ -1,0 +1,444 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-09-05 19:43+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: fr\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/components/Footer.tsx
+msgid "2026 Raquel & Jean-Paul. Made with love."
+msgstr "2026 Raquel & Jean-Paul. Fait avec amour."
+
+#: src/components/Vows.tsx
+msgid "4:00 PM — arrival & seating from 3:30 PM"
+msgstr "16h00 — arrivée et placement dès 15h30"
+
+#: src/components/Travel.tsx
+msgid "4200 Bennett Valley Road, Sonoma Valley, CA 95404. Gated parking and a complimentary shuttle from The Larkspur Inn run every 30 minutes from 3:00 PM."
+msgstr "4200 Bennett Valley Road, Sonoma Valley, CA 95404. Stationnement clôturé et navette gratuite depuis The Larkspur Inn toutes les 30 minutes à partir de 15h00."
+
+#: src/components/Travel.tsx
+msgid "A charming, budget-friendly option a short drive into town with free breakfast."
+msgstr "Une option charmante et économique à quelques minutes de voiture du centre-ville, avec petit-déjeuner offert."
+
+#: src/components/Gallery.tsx
+msgid "A few of our favourite frames from the last seven years — and a hint of what the day will feel like."
+msgstr "Quelques-uns de nos cadres préférés des sept dernières années — et un avant-goût de ce que sera la journée."
+
+#: src/components/Registry.tsx
+msgid "A little toward the garden, the porch swing, and that lemon tree we keep talking about."
+msgstr "Un peu pour le jardin, la balancelle de la véranda et ce citronnier dont on parle tout le temps."
+
+#: src/components/Vows.tsx
+msgid "A short outdoor ceremony, around 30 minutes"
+msgstr "Une courte cérémonie en extérieur, environ 30 minutes"
+
+#: src/components/Travel.tsx
+msgid "Bedroom at Vine Street Guesthouse"
+msgstr "Chambre au Vine Street Guesthouse"
+
+#: src/components/Party.tsx
+msgid "Best Man"
+msgstr "Témoin du marié"
+
+#: src/components/Travel.tsx
+msgid "Book a room"
+msgstr "Réserver une chambre"
+
+#: src/components/Hero.tsx
+msgid "Bridal bouquet of garden roses on a linen table"
+msgstr "Bouquet de mariée de roses de jardin sur une table en lin"
+
+#: src/components/Party.tsx
+msgid "Bridesmaid"
+msgstr "Demoiselle d'honneur"
+
+#: src/components/Party.tsx
+msgid "by our side"
+msgstr "à nos côtés"
+
+#: src/components/Vows.tsx
+msgid "Ceremony"
+msgstr "Cérémonie"
+
+#: src/components/Header.tsx
+msgid "Close menu"
+msgstr "Fermer le menu"
+
+#: src/components/Gallery.tsx
+msgid "Close-up of blush garden roses in bloom"
+msgstr "Gros plan sur des roses de jardin poudrées en pleine floraison"
+
+#: src/components/Details.tsx
+msgid "Cocktails 5:00 PM · Dinner 6:30 PM"
+msgstr "Cocktails à 17h00 · Dîner à 18h30"
+
+#: src/components/Registry.tsx
+msgid "Contribute"
+msgstr "Contribuer"
+
+#: src/components/Registry.tsx
+msgid "Contribute to the honeymoon fund"
+msgstr "Contribuer au fonds lune de miel"
+
+#: src/components/Hero.tsx
+msgid "Countdown to the wedding"
+msgstr "Compte à rebours avant le mariage"
+
+#: src/components/Details.tsx
+msgid "Dancing until midnight with The Velvet Hours"
+msgstr "Danse jusqu'à minuit avec The Velvet Hours"
+
+#: src/components/Hero.tsx
+msgid "Days"
+msgstr "Jours"
+
+#: src/components/Header.tsx
+msgid "days to go"
+msgstr "jours restants"
+
+#: src/components/Footer.tsx
+#: src/components/Header.tsx
+msgid "Details"
+msgstr "Détails"
+
+#: src/components/Details.tsx
+msgid "Dress code:"
+msgstr "Code vestimentaire :"
+
+#: src/components/Gallery.tsx
+msgid "Elegant table setting with gold flatware and taper candles"
+msgstr "Mise en table élégante avec couverts dorés et bougies"
+
+#: src/components/Travel.tsx
+msgid "Fernwood Estate"
+msgstr "Fernwood Estate"
+
+#: src/components/Hero.tsx
+msgid "Fernwood Estate — Sonoma Valley, California"
+msgstr "Fernwood Estate — Sonoma Valley, Californie"
+
+#: src/components/Gallery.tsx
+msgid "Fernwood Estate glowing at golden hour"
+msgstr "Fernwood Estate à l'heure dorée"
+
+#: src/components/Travel.tsx
+msgid "Fernwood Estate sits about an hour north of San Francisco. Make a weekend of it — the valley is at its best in September."
+msgstr "Fernwood Estate se trouve à environ une heure au nord de San Francisco. Profitez-en pour rester tout le week-end — la vallée est à son apogée en septembre."
+
+#: src/components/Travel.tsx
+msgid "Fernwood Estate surrounded by vineyards at dusk"
+msgstr "Fernwood Estate entouré de vignobles au crépuscule"
+
+#: src/components/Vows.tsx
+msgid "Floral ceremony arch beneath an old oak tree"
+msgstr "Arche florale de cérémonie sous un vieux chêne"
+
+#: src/components/Travel.tsx
+msgid "Flying in?"
+msgstr "Vous venez en avion ?"
+
+#: src/components/Travel.tsx
+msgid "From $165 / night"
+msgstr "Dès 165 $ / nuit"
+
+#: src/components/Travel.tsx
+msgid "From $210 / night"
+msgstr "Dès 210 $ / nuit"
+
+#: src/components/Footer.tsx
+#: src/components/Header.tsx
+#: src/components/Hero.tsx
+msgid "Gallery"
+msgstr "Galerie"
+
+#: src/components/Details.tsx
+msgid "Garden formal — think soft linens, florals and heels that survive a lawn. The evenings in Sonoma turn cool, so bring a wrap."
+msgstr "Tenue de jardin chic — lin léger, imprimés fleuris et talons qui survivent à une pelouse. Les soirées à Sonoma se rafraîchissent, alors prévoyez une étole."
+
+#: src/components/Travel.tsx
+msgid "getting there"
+msgstr "y aller"
+
+#: src/components/Vows.tsx
+msgid "Getting there"
+msgstr "S'y rendre"
+
+#: src/components/Registry.tsx
+msgid "Gift Registry"
+msgstr "Liste de mariage"
+
+#: src/components/Registry.tsx
+msgid "Give a little"
+msgstr "Offrir un peu"
+
+#: src/components/Registry.tsx
+msgid "Give to the cottage fund"
+msgstr "Offrir pour le fonds maison"
+
+#: src/components/Party.tsx
+msgid "Groomsman"
+msgstr "Garçon d'honneur"
+
+#: src/components/Registry.tsx
+msgid "Help us chase the sunset in Amalfi — a dinner, a boat ride, a night under the stars."
+msgstr "Aidez-nous à chasser le coucher de soleil à Amalfi — un dîner, une promenade en bateau, une nuit à la belle étoile."
+
+#: src/components/Header.tsx
+msgid "Home"
+msgstr "Accueil"
+
+#: src/components/Hero.tsx
+msgid "Hours"
+msgstr "Heures"
+
+#: src/components/Party.tsx
+msgid "Jean-Paul's college roommate and partner in every questionable road-trip decision since 2014."
+msgstr "Le colocataire d'université de Jean-Paul et complice de toutes les décisions douteuses prises en road-trip depuis 2014."
+
+#: src/components/Party.tsx
+msgid "Jean-Paul's younger brother, official ring-bearer wrangler and unofficial dance-floor starter."
+msgstr "Le petit frère de Jean-Paul, gardien officiel du porteur d'alliances et lanceur officieux de la piste de danse."
+
+#: src/components/Registry.tsx
+msgid "Linens, stoneware and the slow, lovely things that make a house a home."
+msgstr "Linge, grès et ces belles choses lentes qui transforment une maison en foyer."
+
+#: src/components/Gallery.tsx
+msgid "Little Glimpses"
+msgstr "Petits aperçus"
+
+#: src/components/Details.tsx
+msgid "Long banquet table set for a candlelit reception"
+msgstr "Longue table de banquet dressée pour une réception aux chandelles"
+
+#: src/components/Party.tsx
+msgid "Maid of Honor"
+msgstr "Témoin de la mariée"
+
+#: src/components/Hero.tsx
+msgid "Minutes"
+msgstr "Minutes"
+
+#: src/components/Gallery.tsx
+msgid "moments"
+msgstr "instants"
+
+#: src/components/Party.tsx
+msgid "Neighbour turned family, and the reason Raquel and Jean-Paul ever went on that first double date."
+msgstr "De voisine, elle est devenue famille — et c'est la raison pour laquelle Raquel et Jean-Paul s'étaient finalement lancés dans ce premier double rendez-vous."
+
+#: src/components/Registry.tsx
+msgid "Nell & Rye Home"
+msgstr "Nell & Rye Home"
+
+#: src/components/Details.tsx
+msgid "One estate, one unforgettable evening. Here is everything you need to know about the day itself."
+msgstr "Un domaine, une soirée inoubliable. Voici tout ce que vous devez savoir sur le jour J."
+
+#: src/components/Travel.tsx
+msgid "Open in Maps"
+msgstr "Ouvrir dans Maps"
+
+#: src/components/Header.tsx
+msgid "Open menu"
+msgstr "Ouvrir le menu"
+
+#: src/components/Travel.tsx
+msgid "Our room block — 8 minutes from Fernwood. Use code EVERLY26 by Aug 1."
+msgstr "Notre bloc de chambres — à 8 minutes de Fernwood. Utilisez le code EVERLY26 avant le 1er août."
+
+#: src/components/Gallery.tsx
+msgid "Pair of gold wedding bands on a velvet cushion"
+msgstr "Paire d'alliances en or sur un coussin de velours"
+
+#: src/components/Party.tsx
+msgid "Portrait of Daniel Reyes"
+msgstr "Portrait de Daniel Reyes"
+
+#: src/components/Party.tsx
+msgid "Portrait of Hannah Cole"
+msgstr "Portrait de Hannah Cole"
+
+#: src/components/Party.tsx
+msgid "Portrait of Marcus Bell"
+msgstr "Portrait de Marcus Bell"
+
+#: src/components/Party.tsx
+msgid "Portrait of Priya Anand"
+msgstr "Portrait de Priya Anand"
+
+#: src/components/Party.tsx
+msgid "Portrait of Sofia Marlow"
+msgstr "Portrait de Sofia Marlow"
+
+#: src/components/Party.tsx
+msgid "Portrait of Theo Nakamura"
+msgstr "Portrait de Theo Nakamura"
+
+#: src/components/Header.tsx
+msgid "Primary"
+msgstr "Navigation principale"
+
+#: src/components/Header.tsx
+msgid "Raquel and Jean-Paul — home"
+msgstr "Raquel et Jean-Paul — accueil"
+
+#: src/components/Hero.tsx
+msgid "Raquel and Jean-Paul are getting married"
+msgstr "Raquel et Jean-Paul se marient"
+
+#: src/components/Party.tsx
+msgid "Raquel's sister, chief cheerleader, and the only person allowed to give a speech longer than five minutes."
+msgstr "La sœur de Raquel, cheerleader en chef et la seule personne autorisée à faire un discours de plus de cinq minutes."
+
+#: src/components/Details.tsx
+msgid "Reception"
+msgstr "Réception"
+
+#: src/components/Gallery.tsx
+msgid "Rows of vines across a Sonoma valley vineyard"
+msgstr "Rangées de vignes dans un vignoble de Sonoma Valley"
+
+#: src/components/Travel.tsx
+msgid "San Francisco (SFO) is 75 minutes away; Oakland (OAK) and Santa Rosa (STS) are closer for domestic hops. We recommend renting a car — or joining the group shuttle from the inn."
+msgstr "San Francisco (SFO) est à 75 minutes ; Oakland (OAK) et Santa Rosa (STS) sont plus proches pour les vols intérieurs. Nous recommandons de louer une voiture — ou de rejoindre la navette groupée depuis l'auberge."
+
+#: src/components/Hero.tsx
+msgid "Scroll to the details"
+msgstr "Faire défiler vers les détails"
+
+#: src/components/Details.tsx
+msgid "Seated dinner, open bar & late-night bites"
+msgstr "Dîner assis, bar ouvert & bouchées tardives"
+
+#: src/components/Hero.tsx
+msgid "Seconds"
+msgstr "Secondes"
+
+#: src/App.tsx
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+#: src/components/Footer.tsx
+msgid "Sonoma Valley"
+msgstr "Sonoma Valley"
+
+#: src/components/Travel.tsx
+msgid "Suite at The Larkspur Inn"
+msgstr "Suite au The Larkspur Inn"
+
+#: src/components/Details.tsx
+msgid "the celebration"
+msgstr "la célébration"
+
+#: src/components/Registry.tsx
+msgid "The Cottage Fund"
+msgstr "Le fonds maison"
+
+#: src/components/Party.tsx
+msgid "The dearest friends and family who have carried us here — and who will be standing with us on the day."
+msgstr "Les amis et la famille les plus chers qui ont porté notre histoire jusqu'ici — et qui seront à nos côtés le jour J."
+
+#: src/components/Details.tsx
+#: src/components/Hero.tsx
+msgid "The Details"
+msgstr "Les Détails"
+
+#: src/components/Details.tsx
+msgid "The Feast"
+msgstr "Le Festin"
+
+#: src/components/Party.tsx
+msgid "The friend who answers the phone at 2 a.m. and shows up with snacks by 2:20."
+msgstr "L'amie qui répond au téléphone à 2 h du matin et arrive avec des snacks à 2 h 20."
+
+#: src/components/Registry.tsx
+msgid "The Honeymoon Fund"
+msgstr "Le fonds lune de miel"
+
+#: src/components/Travel.tsx
+msgid "The Larkspur Inn"
+msgstr "The Larkspur Inn"
+
+#: src/components/Vows.tsx
+msgid "The Oak Lawn, Fernwood Estate"
+msgstr "La pelouse du chêne, Fernwood Estate"
+
+#: src/components/Footer.tsx
+#: src/components/Header.tsx
+msgid "The Party"
+msgstr "La Noce"
+
+#: src/components/Party.tsx
+msgid "The steady one — first to arrive, last to leave, and keeper of every emergency safety pin."
+msgstr "Le pilier — premier arrivé, dernier parti, et gardien de chaque épingle de sûreté de secours."
+
+#: src/components/Travel.tsx
+msgid "The Venue"
+msgstr "Le lieu"
+
+#: src/components/Details.tsx
+msgid "The Vine Barn & Terrace"
+msgstr "La grange & terrasse Vin"
+
+#: src/components/Vows.tsx
+msgid "The Vows"
+msgstr "Les Vœux"
+
+#: src/components/Party.tsx
+msgid "The Wedding Party"
+msgstr "La Noce"
+
+#: src/components/Gallery.tsx
+msgid "Three-tier naked wedding cake dressed with flowers"
+msgstr "Wedding cake nu à trois étages paré de fleurs"
+
+#: src/components/Hero.tsx
+msgid "Together with their families"
+msgstr "Avec leurs familles"
+
+#: src/components/Footer.tsx
+#: src/components/Header.tsx
+msgid "Travel"
+msgstr "Voyage"
+
+#: src/components/Travel.tsx
+msgid "Travel & Stay"
+msgstr "Voyage & Hébergement"
+
+#: src/components/Vows.tsx
+msgid "Under the Grand Oak"
+msgstr "Sous le Grand Chêne"
+
+#: src/components/Registry.tsx
+msgid "View registry"
+msgstr "Voir la liste"
+
+#: src/components/Registry.tsx
+msgid "View the Nell and Rye Home registry"
+msgstr "Voir la liste Nell & Rye Home"
+
+#: src/components/Travel.tsx
+msgid "Vine Street Guesthouse"
+msgstr "Vine Street Guesthouse"
+
+#: src/components/Gallery.tsx
+msgid "Warm candlelight glowing across a dinner table"
+msgstr "Douce lueur de bougies sur une table de dîner"
+
+#: src/components/Registry.tsx
+msgid "with gratitude"
+msgstr "avec gratitude"
+
+#: src/components/Registry.tsx
+msgid "Your presence is the only present we need — but for those who've asked, here is where we're dreaming."
+msgstr "Votre présence est le seul cadeau dont nous avons besoin — mais pour ceux qui ont demandé, voici ce dont nous rêvons."

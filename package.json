@@ -1,0 +1,32 @@
+{
+  "name": "wedding",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lingui:extract": "lingui extract",
+    "lingui:compile": "lingui compile",
+    "lingui": "lingui extract"
+  },
+  "devDependencies": {
+    "@lingui/babel-plugin-lingui-macro": "^6.6.0",
+    "@lingui/cli": "^6.6.0",
+    "@lingui/format-po": "^6.6.0",
+    "@lingui/vite-plugin": "^6.6.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^5.2.0",
+    "typescript": "^7.0.2",
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "@lingui/core": "^6.6.0",
+    "@lingui/react": "^6.6.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}
