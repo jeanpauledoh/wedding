@@ -34,33 +34,73 @@ msgid "5:00 PM — the wedding celebration"
 msgstr "17h00 — la fête de mariage"
 
 #: src/components/Gallery.tsx
-msgid "A few of our favourite frames from the last seven years — and a hint of what the day will feel like."
-msgstr "Quelques-uns de nos cadres préférés des sept dernières années — et un avant-goût de ce que sera la journée."
+msgid "A few of our favourite frames from the last 10 years. A hint of what the day will feel like."
+msgstr "Quelques-uns de nos cadres préférés des 10 dernières années. Un avant-goût de ce que sera la journée."
+
+#: src/components/Hotels.tsx
+msgid "A friendly hostel-hotel right by Berlin's main station — ideal if you arrive by train, with a rooftop terrace bar and free WiFi."
+msgstr "Une auberge-hôtel sympathique juste à côté de la gare principale de Berlin — idéal si vous arrivez en train, avec un bar sur la terrasse panoramique et du WiFi gratuit."
+
+#: src/components/OptionalDay.tsx
+msgid "A leisurely winter walk through one of Europe's most beautiful gardens before everyone heads home. Heated glasshouses keep the green alive even in December."
+msgstr "Une promenade hivernale tranquille à travers l'un des plus beaux jardins d'Europe avant que chacun ne rentre chez soi. Les serres chauffées gardent tout vert même en décembre."
+
+#: src/components/Hotels.tsx
+msgid "A modern budget hotel right in the heart of Berlin Mitte, within walking distance of the Brandenburg Gate, the Reichstag and our venues."
+msgstr "Un hôtel moderne et économique en plein cœur de Berlin-Mitte, à distance de marche de la porte de Brandebourg, du Reichstag et de nos lieux de fête."
+
+#: src/components/Gallery.tsx
+msgid "A photo from our last ten years together"
+msgstr "Une photo de nos dix dernières années ensemble"
+
+#: src/components/Details.tsx
+msgid "A relaxed brunch with sparkling wine and good food after the ceremony. We raise our glasses and take our time together before the evening celebrations begin."
+msgstr "Un brunch décontracté au vin mousseux et à la bonne cuisine après la cérémonie. Nous levons nos verres et prenons le temps d'être ensemble avant le début des festivités du soir."
+
+#: src/components/Gallery.tsx
+msgid "A scenic sunset walk"
+msgstr "Une promenade pittoresque au coucher du soleil"
 
 #: src/components/OptionalDay.tsx
 msgid "A walk through the gardens"
 msgstr "Une promenade dans les jardins"
 
-#: src/components/Details.tsx
-msgid "Albrechtstraße 18, 10117 Berlin"
-msgstr "Albrechtstraße 18, 10117 Berlin"
+#: src/components/Hotels.tsx
+msgid "a&o Berlin Hauptbahnhof"
+msgstr "a&o Berlin Hauptbahnhof"
 
 #: src/components/Details.tsx
-msgid "Albrechtstraße 9, 10117 Berlin"
-msgstr "Albrechtstraße 9, 10117 Berlin"
+#~ msgid "Albrechtstraße 18, 10117 Berlin"
+#~ msgstr "Albrechtstraße 18, 10117 Berlin"
+
+#: src/components/Details.tsx
+#~ msgid "Albrechtstraße 9, 10117 Berlin"
+#~ msgstr "Albrechtstraße 9, 10117 Berlin"
 
 #: src/components/Gallery.tsx
-msgid "An estate glowing at golden hour"
-msgstr "Un domaine à l'heure dorée"
+#~ msgid "An estate glowing at golden hour"
+#~ msgstr "Un domaine à l'heure dorée"
 
 #: src/components/OptionalDay.tsx
 msgid "An optional little extra for anyone who would love to spend more time together."
 msgstr "Un petit plus facultatif pour tous ceux qui aimeraient passer encore un peu de temps ensemble."
 
+#: src/components/Hotels.tsx
+msgid "B&B Hotel Berlin-Mitte"
+msgstr "B&B Hotel Berlin-Mitte"
+
 #: src/components/Footer.tsx
 #: src/components/Hero.tsx
 msgid "Berlin"
 msgstr "Berlin"
+
+#: src/components/Hotels.tsx
+msgid "Berlin Hauptbahnhof"
+msgstr "Berlin Hauptbahnhof"
+
+#: src/components/Hotels.tsx
+msgid "Berlin Mitte"
+msgstr "Berlin Mitte"
 
 #: src/components/OptionalDay.tsx
 msgid "Botanischer Garten Berlin"
@@ -94,13 +134,17 @@ msgstr "Fête au restaurant Whitebird"
 msgid "Ceremony"
 msgstr "Cérémonie"
 
+#: src/components/ItineraryModal.tsx
+msgid "Close"
+msgstr "Fermer"
+
 #: src/components/Header.tsx
 msgid "Close menu"
 msgstr "Fermer le menu"
 
 #: src/components/Gallery.tsx
-msgid "Close-up of blush garden roses in bloom"
-msgstr "Gros plan sur des roses de jardin poudrées en pleine floraison"
+#~ msgid "Close-up of blush garden roses in bloom"
+#~ msgstr "Gros plan sur des roses de jardin poudrées en pleine floraison"
 
 #: src/components/Hero.tsx
 msgid "Countdown to the wedding"
@@ -114,8 +158,10 @@ msgstr "Jours"
 msgid "days to go"
 msgstr "jours restants"
 
+#: src/components/Details.tsx
 #: src/components/Footer.tsx
 #: src/components/Header.tsx
+#: src/components/OptionalDay.tsx
 msgid "Details"
 msgstr "Détails"
 
@@ -124,18 +170,26 @@ msgid "Dress code:"
 msgstr "Code vestimentaire :"
 
 #: src/components/Gallery.tsx
-msgid "Elegant table setting with gold flatware and taper candles"
-msgstr "Mise en table élégante avec couverts dorés et bougies"
+#~ msgid "Elegant table setting with gold flatware and taper candles"
+#~ msgstr "Mise en table élégante avec couverts dorés et bougies"
 
 #: src/components/Details.tsx
 msgid "Festive elegant — red and black are welcome."
 msgstr "Élégant et festif — le rouge et le noir sont les bienvenus."
+
+#: src/components/Hotels.tsx
+msgid "For our guests travelling from further away, here are two options near our venues."
+msgstr "Pour nos invités qui viennent de plus loin, voici deux options près de nos lieux de fête."
 
 #: src/components/Footer.tsx
 #: src/components/Header.tsx
 #: src/components/Hero.tsx
 msgid "Gallery"
 msgstr "Galerie"
+
+#: src/components/ItineraryModal.tsx
+msgid "Get Directions"
+msgstr "Obtenir l'itinéraire"
 
 #: src/components/Header.tsx
 msgid "Home"
@@ -178,12 +232,12 @@ msgid "Optional"
 msgstr "Facultatif"
 
 #: src/components/Gallery.tsx
-msgid "Pair of gold wedding bands on a velvet cushion"
-msgstr "Paire d'alliances en or sur un coussin de velours"
+#~ msgid "Pair of gold wedding bands on a velvet cushion"
+#~ msgstr "Paire d'alliances en or sur un coussin de velours"
 
 #: src/components/Details.tsx
-msgid "Parochialstraße 3, 10179 Berlin"
-msgstr "Parochialstraße 3, 10179 Berlin"
+#~ msgid "Parochialstraße 3, 10179 Berlin"
+#~ msgstr "Parochialstraße 3, 10179 Berlin"
 
 #: src/components/RSVP.tsx
 msgid "Please let us know by November 1, 2026 whether you can celebrate with us."
@@ -210,8 +264,8 @@ msgid "Restaurant 'Whitebird'"
 msgstr "Restaurant 'Whitebird'"
 
 #: src/components/Gallery.tsx
-msgid "Rows of vines across a vineyard"
-msgstr "Rangées de vignes dans un vignoble"
+#~ msgid "Rows of vines across a vineyard"
+#~ msgstr "Rangées de vignes dans un vignoble"
 
 #: src/components/RSVP.tsx
 msgid "RSVP"
@@ -258,6 +312,10 @@ msgid "The Ceremony"
 msgstr "La Cérémonie"
 
 #: src/components/Details.tsx
+msgid "The civil ceremony is the official, heartfelt start of our day. We exchange our vows at the historic registry office in Berlin Mitte."
+msgstr "La cérémonie civile est le début officiel et sincère de notre journée. Nous échangeons nos vœux à l'historique bureau d'état civil de Berlin-Mitte."
+
+#: src/components/Details.tsx
 msgid "the day"
 msgstr "le jour"
 
@@ -270,17 +328,37 @@ msgstr "Le lendemain"
 msgid "The Details"
 msgstr "Les Détails"
 
+#: src/components/Details.tsx
+msgid "The grand finale: dinner, drinks and dancing at Restaurant Whitebird. After the ceremony and brunch, we celebrate into the night with our closest family and friends."
+msgstr "Le grand final : dîner, boissons et danse au restaurant Whitebird. Après la cérémonie et le brunch, nous célébrons jusqu'au bout de la nuit avec notre famille et nos amis les plus proches."
+
 #: src/components/Gallery.tsx
-msgid "Three-tier naked wedding cake dressed with flowers"
-msgstr "Wedding cake nu à trois étages paré de fleurs"
+#~ msgid "Three-tier naked wedding cake dressed with flowers"
+#~ msgstr "Wedding cake nu à trois étages paré de fleurs"
 
 #: src/components/Hero.tsx
 msgid "Together with family and friends"
 msgstr "Ensemble avec la famille et les amis"
 
 #: src/components/Gallery.tsx
-msgid "Warm candlelight glowing across a dinner table"
-msgstr "Douce lueur de bougies sur une table de dîner"
+msgid "Us, somewhere in the great outdoors"
+msgstr "Nous, quelque part en pleine nature"
+
+#: src/components/Gallery.tsx
+#~ msgid "Warm candlelight glowing across a dinner table"
+#~ msgstr "Douce lueur de bougies sur une table de dîner"
+
+#: src/components/Hotels.tsx
+msgid "Website"
+msgstr "Site web"
+
+#: src/components/Hotels.tsx
+msgid "where to stay"
+msgstr "où dormir"
+
+#: src/components/Hotels.tsx
+msgid "Where to Stay"
+msgstr "Où dormir"
 
 #: src/components/RSVP.tsx
 msgid "Your message"

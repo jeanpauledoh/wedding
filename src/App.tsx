@@ -4,6 +4,7 @@ import { Details } from './components/Details';
 import { Gallery } from './components/Gallery';
 import { RSVP } from './components/RSVP';
 import { OptionalDay } from './components/OptionalDay';
+import { Hotels } from './components/Hotels';
 import { Footer } from './components/Footer';
 import { useCountdown } from './hooks/useCountdown';
 import { useReveal } from './hooks/useReveal';
@@ -27,6 +28,7 @@ export default function App() {
         <RSVP />
         <Gallery />
         <OptionalDay />
+        <Hotels />
       </main>
       <Footer />
     </>

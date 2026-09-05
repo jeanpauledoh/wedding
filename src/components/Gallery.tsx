@@ -2,19 +2,23 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import { SectionHead } from './SectionHead';
-import { gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, venue } from '../images';
+import { rp1, rp2, rp3, rp5, rp6, rp7, rp9, rp10, rp11, rp12, rp13 } from '../images';
 
 export function Gallery() {
   useLingui();
 
   const items = [
-    { src: gallery1, className: 'g-tall', alt: t`Close-up of blush garden roses in bloom` },
-    { src: gallery6, className: 'g-wide', alt: t`Elegant table setting with gold flatware and taper candles` },
-    { src: gallery3, className: '', alt: t`Pair of gold wedding bands on a velvet cushion` },
-    { src: gallery5, className: '', alt: t`Rows of vines across a vineyard` },
-    { src: gallery2, className: 'g-tall', alt: t`Three-tier naked wedding cake dressed with flowers` },
-    { src: gallery4, className: '', alt: t`Warm candlelight glowing across a dinner table` },
-    { src: venue, className: 'g-wide', alt: t`An estate glowing at golden hour` }
+    { src: rp13, className: 'g-tall', alt: t`A photo from our last ten years together` },
+    { src: rp1, className: 'g-wide', alt: t`A scenic sunset walk` },
+    { src: rp11, className: '', alt: t`Us, somewhere in the great outdoors` },
+    { src: rp3, className: '', alt: t`A photo from our last ten years together` },
+    { src: rp7, className: 'g-tall', alt: t`A photo from our last ten years together` },
+    { src: rp9, className: '', alt: t`A photo from our last ten years together` },
+    { src: rp5, className: '', alt: t`A photo from our last ten years together` },
+    { src: rp2, className: 'g-tall', alt: t`A photo from our last ten years together` },
+    { src: rp10, className: '', alt: t`A photo from our last ten years together` },
+    { src: rp6, className: '', alt: t`A photo from our last ten years together` },
+    { src: rp12, className: '', alt: t`A photo from our last ten years together` }
   ];
 
   return (
@@ -25,7 +29,7 @@ export function Gallery() {
           eyebrow={<Trans>moments</Trans>}
           title={<Trans>Little Glimpses</Trans>}
           intro={
-            <Trans>A few of our favourite frames from the last seven years — and a hint of what the day will feel like.</Trans>
+            <Trans>A few of our favourite frames from the last 10 years. A hint of what the day will feel like.</Trans>
           }
         />
 
