@@ -81,6 +81,10 @@ msgstr "a&o Berlin Hauptbahnhof"
 #~ msgid "An estate glowing at golden hour"
 #~ msgstr "Un domaine à l'heure dorée"
 
+#: src/components/Details.tsx
+msgid "An evening of dinner, drinks and dancing in Berlin. Here is everything you need to know."
+msgstr "Une soirée de dîner, de boissons et de danse à Berlin. Voici tout ce qu'il faut savoir."
+
 #: src/components/OptionalDay.tsx
 msgid "An optional little extra for anyone who would love to spend more time together."
 msgstr "Un petit plus facultatif pour tous ceux qui aimeraient passer encore un peu de temps ensemble."
@@ -106,6 +110,7 @@ msgstr "Berlin Mitte"
 msgid "Botanischer Garten Berlin"
 msgstr "Jardin botanique de Berlin"
 
+#: src/components/Blocked.tsx
 #: src/components/Hero.tsx
 msgid "Bridal bouquet of garden roses on a linen table"
 msgstr "Bouquet de mariée de roses de jardin sur une table en lin"
@@ -166,6 +171,10 @@ msgid "Details"
 msgstr "Détails"
 
 #: src/components/Details.tsx
+msgid "Dinner, drinks and dancing at Restaurant Whitebird, among our closest family and friends."
+msgstr "Dîner, boissons et danse au restaurant Whitebird, entourés de notre famille et de nos amis les plus proches."
+
+#: src/components/Details.tsx
 msgid "Dress code:"
 msgstr "Code vestimentaire :"
 
@@ -203,6 +212,10 @@ msgstr "Heures"
 msgid "if you feel like it"
 msgstr "si vous en avez envie"
 
+#: src/components/Blocked.tsx
+msgid "Invitation code"
+msgstr "Code d'invitation"
+
 #: src/components/OptionalDay.tsx
 msgid "Königin-Luise-Straße 6-8, 14195 Berlin"
 msgstr "Königin-Luise-Straße 6-8, 14195 Berlin"
@@ -227,6 +240,10 @@ msgstr "Une journée à Berlin, trois chapitres magnifiques. Voici tout ce qu'il
 msgid "Open menu"
 msgstr "Ouvrir le menu"
 
+#: src/components/Blocked.tsx
+msgid "Open my invitation"
+msgstr "Ouvrir mon invitation"
+
 #: src/components/OptionalDay.tsx
 msgid "Optional"
 msgstr "Facultatif"
@@ -247,10 +264,12 @@ msgstr "Merci de nous faire savoir avant le 1er novembre 2026 si vous pouvez fê
 msgid "Primary"
 msgstr "Navigation principale"
 
+#: src/components/Blocked.tsx
 #: src/components/Header.tsx
 msgid "Raquel and Jean-Paul — home"
 msgstr "Raquel et Jean-Paul — accueil"
 
+#: src/components/Blocked.tsx
 #: src/components/Hero.tsx
 msgid "Raquel and Jean-Paul are getting married"
 msgstr "Raquel et Jean-Paul se marient"
@@ -332,10 +351,23 @@ msgstr "Les Détails"
 msgid "The grand finale: dinner, drinks and dancing at Restaurant Whitebird. After the ceremony and brunch, we celebrate into the night with our closest family and friends."
 msgstr "Le grand final : dîner, boissons et danse au restaurant Whitebird. Après la cérémonie et le brunch, nous célébrons jusqu'au bout de la nuit avec notre famille et nos amis les plus proches."
 
+#: src/components/Details.tsx
+msgid "the party"
+msgstr "la fête"
+
+#: src/components/Blocked.tsx
+msgid "This invite is private. Enter the code from your invitation to continue."
+msgstr "Cette invitation est privée. Saisissez le code figurant sur votre invitation pour continuer."
+
+#: src/components/Blocked.tsx
+msgid "This preview cannot verify invitation links."
+msgstr "Cet aperçu ne peut pas vérifier les liens d'invitation."
+
 #: src/components/Gallery.tsx
 #~ msgid "Three-tier naked wedding cake dressed with flowers"
 #~ msgstr "Wedding cake nu à trois étages paré de fleurs"
 
+#: src/components/Blocked.tsx
 #: src/components/Hero.tsx
 msgid "Together with family and friends"
 msgstr "Ensemble avec la famille et les amis"

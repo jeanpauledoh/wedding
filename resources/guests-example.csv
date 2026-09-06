@@ -1,0 +1,11 @@
+# Guest list for minting magic-link tokens.
+# Columns: name, variant, lang (optional)
+#   variant = vows   → ceremony + brunch + party (full site)
+#   variant = party  → wedding party only
+# Copy this file to resources/guests.csv and fill in your real guest list
+# (resources/guests.csv is gitignored — never commit real visitor data).
+name,variant,lang
+Alice Vows,vows,de
+Bob Party,party,en
+Julia & Marcus,vows,de
+Sam Guest,party,fr
