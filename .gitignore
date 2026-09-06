@@ -7,5 +7,14 @@ dist/
 .env.local
 .env.*.local
 
+# Real guest list (do not commit personal data)
+resources/guests.csv
+
+# Worker local secrets
+worker/.dev.vars
+
+# Miniflare local dev state (request traces can capture token URLs)
+worker/.wrangler/
+
 # JetBrains IDE
 .idea/

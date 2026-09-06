@@ -1,0 +1,8 @@
+name = "wedding-gate"
+main = "src/index.ts"
+compatibility_date = "2026-09-06"
+workers_dev = true
+
+# wrangler deploy uploads the script; the route + DNS proxy flip are manual steps
+# (see README "Manual steps"). To pin the route from here instead of the dashboard:
+#   routes = [{ pattern = "rjheiraten-berlin.de/*", zone_name = "rjheiraten-berlin.de" }]
