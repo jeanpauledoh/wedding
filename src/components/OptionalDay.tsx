@@ -2,6 +2,7 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import { SectionHead } from './SectionHead';
+import { ItineraryModal } from './ItineraryModal';
 import { gallery1 } from '../images';
 import { ClockIcon, PinIcon } from './Icons';
 
@@ -48,6 +49,20 @@ export function OptionalDay() {
                 </span>
               </li>
             </ul>
+            <div className="detail-actions">
+              <ItineraryModal
+                buttonLabel={<Trans>Details</Trans>}
+                title={<Trans>Botanischer Garten Berlin</Trans>}
+                tag={<Trans>Optional</Trans>}
+                address="Königin-Luise-Straße 6-8, 14195 Berlin"
+                blurb={
+                  <Trans>
+                    A leisurely winter walk through one of Europe's most beautiful gardens before
+                    everyone heads home. Heated glasshouses keep the green alive even in December.
+                  </Trans>
+                }
+              />
+            </div>
           </div>
         </div>
       </div>
