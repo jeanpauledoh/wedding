@@ -123,9 +123,14 @@ msgstr "Brunch"
 msgid "Brunch at Sag mir wo die Blumen sind"
 msgstr "Brunch im Sag mir wo die Blumen sind"
 
+#: src/components/GuestPhotos.tsx
 #: src/components/RSVP.tsx
 msgid "Cancel"
 msgstr "Abbrechen"
+
+#: src/components/GuestPhotos.tsx
+msgid "Captured a special moment during the day? We would love to have it back from you. Your photos land straight in our private album."
+msgstr "Einen besonderen Moment am Tag festgehalten? Wir würden ihn gerne von euch zurückbekommen. Eure Fotos landen direkt in unserem privaten Album."
 
 #: src/components/Details.tsx
 msgid "Celebration"
@@ -139,6 +144,7 @@ msgstr "Feier im Restaurant Whitebird"
 msgid "Ceremony"
 msgstr "Zeremonie"
 
+#: src/components/GuestPhotos.tsx
 #: src/components/ItineraryModal.tsx
 msgid "Close"
 msgstr "Schließen"
@@ -174,9 +180,17 @@ msgstr "Details"
 msgid "Dinner, drinks and dancing at Restaurant Whitebird, among our closest family and friends."
 msgstr "Abendessen, Drinks und Tanzen im Restaurant Whitebird, mit unserer engsten Familie und unseren Freunden."
 
+#: src/components/GuestPhotos.tsx
+msgid "Download album (zip)"
+msgstr "Album herunterladen (ZIP)"
+
 #: src/components/Details.tsx
 msgid "Dress code:"
 msgstr "Dresscode:"
+
+#: src/components/GuestPhotos.tsx
+msgid "Drop your photos here or tap to choose"
+msgstr "Ziehe deine Fotos hierher oder tippe zum Auswählen"
 
 #: src/components/Gallery.tsx
 #~ msgid "Elegant table setting with gold flatware and taper candles"
@@ -216,6 +230,10 @@ msgstr "wenn ihr Lust habt"
 msgid "Invitation code"
 msgstr "Einladungscode"
 
+#: src/components/GuestPhotos.tsx
+msgid "JPG, PNG, WebP or HEIC · up to 20 photos"
+msgstr "JPG, PNG, WebP oder HEIC · bis zu 20 Fotos"
+
 #: src/components/OptionalDay.tsx
 msgid "Königin-Luise-Straße 6-8, 14195 Berlin"
 msgstr "Königin-Luise-Straße 6-8, 14195 Berlin"
@@ -224,6 +242,10 @@ msgstr "Königin-Luise-Straße 6-8, 14195 Berlin"
 msgid "Little Glimpses"
 msgstr "Kleine Einblicke"
 
+#: src/components/GuestPhotos.tsx
+msgid "Loading your photos…"
+msgstr "Fotos werden geladen…"
+
 #: src/components/Hero.tsx
 msgid "Minutes"
 msgstr "Minuten"
@@ -231,6 +253,10 @@ msgstr "Minuten"
 #: src/components/Gallery.tsx
 msgid "moments"
 msgstr "Momente"
+
+#: src/components/GuestPhotos.tsx
+msgid "No photos yet — be the first!"
+msgstr "Noch keine Fotos — mach den Anfang!"
 
 #: src/components/Details.tsx
 msgid "One day in Berlin, three beautiful chapters. Here is everything you need to know."
@@ -256,6 +282,10 @@ msgstr "Optional"
 #~ msgid "Parochialstraße 3, 10179 Berlin"
 #~ msgstr "Parochialstraße 3, 10179 Berlin"
 
+#: src/components/GuestPhotos.tsx
+msgid "Photos shared by guests"
+msgstr "Fotos von unseren Gästen"
+
 #: src/components/RSVP.tsx
 msgid "Please let us know by November 1, 2026 whether you can celebrate with us."
 msgstr "Bitte gebt uns bis zum 01.11.2026 Bescheid, ob Ihr mitfeiern könnt."
@@ -277,6 +307,10 @@ msgstr "Raquel und Jean-Paul heiraten"
 #: src/components/Details.tsx
 msgid "Registry office in Berlin Mitte"
 msgstr "Standesamt in Berlin Mitte"
+
+#: src/components/GuestPhotos.tsx
+msgid "Remove photo"
+msgstr "Foto entfernen"
 
 #: src/components/Details.tsx
 msgid "Restaurant 'Whitebird'"
@@ -310,13 +344,29 @@ msgstr "Sekunden"
 msgid "Send"
 msgstr "Senden"
 
+#: src/components/GuestPhotos.tsx
+msgid "Share your photos"
+msgstr "Teile deine Fotos"
+
+#: src/components/GuestPhotos.tsx
+msgid "Share Your Photos"
+msgstr "Teile deine Fotos"
+
 #: src/App.tsx
 msgid "Skip to content"
 msgstr "Zum Inhalt springen"
 
+#: src/components/GuestPhotos.tsx
+msgid "Something went wrong. Please try again."
+msgstr "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+
 #: src/components/Details.tsx
 msgid "Standesamt Berlin Mitte"
 msgstr "Standesamt Berlin Mitte"
+
+#: src/components/GuestPhotos.tsx
+msgid "Thank you! Your photos are on their way to our album."
+msgstr "Danke! Deine Fotos sind auf dem Weg in unser Album."
 
 #: src/components/Details.tsx
 msgid "The Brunch"
@@ -372,9 +422,21 @@ msgstr "Diese Vorschau kann Einladungslinks nicht verifizieren."
 msgid "Together with family and friends"
 msgstr "Gemeinsam mit Familie und Freunden"
 
+#: src/components/GuestPhotos.tsx
+msgid "Upload"
+msgstr "Hochladen"
+
+#: src/components/GuestPhotos.tsx
+msgid "Uploading…"
+msgstr "Wird hochgeladen…"
+
 #: src/components/Gallery.tsx
 msgid "Us, somewhere in the great outdoors"
 msgstr "Wir, irgendwo in der Natur"
+
+#: src/components/GuestPhotos.tsx
+msgid "View photo"
+msgstr "Foto ansehen"
 
 #: src/components/Gallery.tsx
 #~ msgid "Warm candlelight glowing across a dinner table"
@@ -399,6 +461,14 @@ msgstr "Eure Nachricht"
 #: src/components/RSVP.tsx
 msgid "Your message…"
 msgstr "Eure Nachricht…"
+
+#: src/components/GuestPhotos.tsx
+msgid "your moments"
+msgstr "deine Momente"
+
+#: src/components/GuestPhotos.tsx
+msgid "Your photos will be compressed automatically before upload."
+msgstr "Deine Fotos werden vor dem Hochladen automatisch komprimiert."
 
 #: src/components/RSVP.tsx
 msgid "your reply"
