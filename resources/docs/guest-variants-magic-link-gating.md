@@ -27,11 +27,16 @@ flowchart LR
   `SameSite=Lax` cookie (60 days).
 - Public/no-token allow-list: `hero.jpg`, favicon, `robots.txt` only.
 - Gated non-HTML paths without a cookie → `404`.
-- Origin requests: `Host` header set to the visitor's host (custom domain),
-  cookies stripped, 3xx forwarded as-is so the gate stays in front.
+- Origin requests: the Worker fetches its **own host** (`https://rjheiraten-berlin.de`)
+  attached as a Cloudflare zone **Route** — same-zone route fetches go to the
+  GitHub Pages origin instead of re-invoking the Worker, so no loop and no
+  `Host` header rewriting. Cookies are stripped; 3xx from the origin are
+  forwarded as-is so the gate stays in front.
 - Local testing uses `?variant=vows|party` (localhost only); default `vows`.
-- `github.io` origin leak is mitigated (noindex + a client-side "blocked"
-  state when the meta tags are absent), not eliminated.
+- `github.io` traffic is canonical‑redirected (301) by GitHub to the apex, so it
+  lands in the **gate**; when the meta tags are absent the app also renders a
+  client-side "blocked" state as a fallback. The leak is mitigated, not
+  eliminated.
 
 ## Token spec (`scripts/lib/token.mjs` + `worker/src/index.ts`)
 - Payload: `base64url(JSON { v, n })`; signature: full 32‑byte
@@ -62,7 +67,7 @@ resolve one of three states:
 | `?t=` valid `party` | 302, cookie, celebration-only site |
 | `?t=` invalid / tampered | landing page with the "wrong code" error shown |
 | cookie set | app proxied, meta injected, `Cache-Control: no-store` |
-| `github.io/wedding/` (leak) | app boots → `blocked` gate with code field |
+| `github.io/wedding/` (leak) | GitHub 301 → `rjheiraten-berlin.de` → gate; app-boots-`blocked` remains the fallback |
 | gated asset without cookie | `404` |
 
 ## Tooling (`npm run gen:tokens`, `gen:qr`, `verify-token`)

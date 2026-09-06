@@ -5,9 +5,10 @@ interface Env {
   ORIGIN?: string;
 }
 
-// GitHub Pages origin. The worker proxies requests with the Host header set to
-// the visitor's custom domain so GitHub serves the right project.
-const DEFAULT_ORIGIN = 'https://jeanpauledoh.github.io';
+// The gated app is served through a Cloudflare zone route on this host. The
+// worker fetches the same host: Cloudflare sends same-zone fetches to the
+// GitHub Pages origin instead of re-invoking the worker, so there is no loop.
+const DEFAULT_ORIGIN = 'https://rjheiraten-berlin.de';
 
 const COOKIE_NAME = 'wedding_auth';
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 60; // 60 days
@@ -70,7 +71,6 @@ async function proxyOrigin(request: Request, guest: Guest | null, origin: string
   const originUrl = `${origin}${url.pathname}${url.search}`;
 
   const headers = new Headers(request.headers);
-  headers.set('Host', request.headers.get('host') || url.host);
   headers.delete('cookie');
 
   let response: Response;

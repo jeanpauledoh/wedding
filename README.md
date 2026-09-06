@@ -31,19 +31,26 @@ flowchart LR
 - The Worker is the only public entry point and decides to serve the landing
   page or proxy the app. Unauthenticated HTML requests never reach GitHub Pages;
   gated assets return `404` to unauthenticated clients.
-- The Worker overwrites the `Host` header with the visitor's custom domain so
-  GitHub Pages serves the right project, injects `wedding:variant` /
-  `wedding:name` meta tags into `</head>`, and forces `Cache-Control: no-store`.
-- Only `hero.jpg`, favicon, and `robots.txt` are served without a token.
+- The Worker proxies by fetching its own host (`https://rjheiraten-berlin.de`),
+  attached as a zone **Route** (not a Custom Domain): Cloudflare sends that
+  same-zone fetch to the GitHub Pages origin instead of re-invoking the Worker,
+  so there is no loop and no `Host` header rewriting. It injects
+  `wedding:variant` / `wedding:name` meta tags into `</head>` and forces
+  `Cache-Control: no-store`.
+- Only `/hero.jpg`, the favicon, and `/robots.txt` are served without a token.
 
 ### Why the site can still appear at `https://jeanpauledoh.github.io/wedding/`
 
 A Worker cannot "unpublish" the origin. The default branch is public, so the
-built site remains downloadable there. Mitigation (all in place):
-`noindex` robots meta, and the app renders a **blocked gate** (not the site)
-whenever it boots on a non‑localhost origin without the Worker's meta tags.
-Anyone pulling the raw assets could still reconstruct the content — if that is
-unacceptable, make the repo private.
+built site remains downloadable there. Github also canonical‑redirects
+`jeanpauledoh.github.io/wedding/…` to the apex, so a direct **visit** now
+bounces into the gate rather than serving the app; that redirect is controlled
+from GitHub's Pages settings. Mitigation (all in place): `noindex` robots meta
+on the landing and app pages, a public `robots.txt` (`Disallow: /`) at the
+origin, and the app **blocks** (not the site) whenever it boots on a
+non‑localhost origin without the Worker's meta tags. Anyone pulling the raw
+assets could still reconstruct the content — if that is unacceptable, make the
+repo private.
 
 ## Repository layout
 
@@ -135,8 +142,9 @@ TOKEN_SECRET=<your secret> npm run worker:dev \
   -- --var ORIGIN:http://localhost:4173     # http://localhost:8787
 ```
 
-> `ORIGIN` is a local-only override — it is omitted in production
-> (`wrangler.toml`/CI default to the GitHub Pages origin).
+> `ORIGIN` is a local-only override — in production the Worker defaults to
+> `https://rjheiraten-berlin.de` (see `DEFAULT_ORIGIN` in `worker/src/index.ts`),
+> which the zone route sends back to the GitHub Pages origin.
 >
 > Alternative: run `wrangler dev` from inside `worker/` (config is discovered
 > automatically) and keep non-public vars in `worker/.dev.vars` instead:
@@ -162,7 +170,7 @@ npm run deploy:worker -- --dry-run
 
 Pushing to `main` runs `.github/workflows/deploy.yml`: it builds the app for
 GitHub Pages, uploads the artifact, **and** deploys + secret‑sets the Worker.
-The workflow needs three repo secrets: `VITE_SITE_URL`, `TOKEN_SECRET`,
+The workflow needs four repo secrets: `VITE_SITE_URL`, `TOKEN_SECRET`,
 `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 (See the worker code for where `VITE_SITE_URL` is used by the app.)
 
@@ -173,8 +181,8 @@ otherwise visitors hit GitHub Pages directly (ungated).
 |---|---|---|
 | 1 | Cloudflare → **Workers & Pages** → Create application → upload `worker/wrangler.toml` (or run `npm run deploy:worker` once you're logged in with `wrangler login`). | ☐ |
 | 2 | Set the Worker secret: `npx wrangler secret put TOKEN_SECRET` (same value as your repo secret; the deploy job also (re)sets it on every push). | ☐ |
-| 3 | Worker → **Settings → Triggers → Custom domains**: add `rjheiraten-berlin.de` (**Worker route first!**). | ☐ |
-| 4 | Cloudflare DNS → add/edit the record for **rjheiraten-berlin.de** to Proxy mode (orange cloud). The worker then serves `https://` for the domain. | ☐ |
+| 3 | Worker → **Settings → Domains & Routes → Add → Route**: zone `rjheiraten-berlin.de`, pattern `rjheiraten-berlin.de/*` → `wedding-gate`. Use a **Route, not a Custom Domain** (the Worker fetches its own host; Cloudflare sends that to the origin — a Custom Domain would loop). | ☐ |
+| 4 | Cloudflare DNS → set the existing **rjheiraten-berlin.de** A records to **Proxied** (orange cloud). No records need deleting; leave the `www` CNAME as-is. | ☐ |
 | 5 | Verify in a private window: `https://rjheiraten-berlin.de/` shows the gate; open a minted `?t=` link → full/party site; wrong code → error on the gate. | ☐ |
 
 > Steps 1–4 only happen once; every site change after that is just `git push`.
@@ -185,6 +193,11 @@ otherwise visitors hit GitHub Pages directly (ungated).
 
 - Assets remain downloadable from the public GitHub Pages origin while the
   repo is public (mitigated, not eliminated — see above).
+- Cloudflare may answer `/robots.txt` on the apex with its **Managed
+  robots.txt** (`Allow: /`, `search=yes`) instead of forwarding the origin's
+  `Disallow: /` file. Indexing is still suppressed by the `noindex` meta tag on
+  the landing and app pages. For a strict `Disallow: all`, disable the managed
+  robots.txt in Cloudflare (zone → Crawler settings).
 - The token/cookie mechanism is not "security"; treat it as an access gate
   (a valid HMAC token is unforgeable without the secret, but the secret never
   leaves the Worker, and links can be shared like any invitation).
