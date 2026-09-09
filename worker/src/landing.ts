@@ -49,7 +49,7 @@ export function landing(origin: string, error: boolean): string {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
-  html, body { height: 100%; margin: 0; overflow: hidden; }
+  html, body { min-height: 100%; margin: 0; }
   body {
     font-family: "Jost", "Helvetica Neue", Arial, sans-serif;
     font-weight: 300; font-size: 1.02rem; line-height: 1.75;

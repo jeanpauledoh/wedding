@@ -3,6 +3,7 @@ import { Hero } from './components/Hero';
 import { Details } from './components/Details';
 import { Gallery } from './components/Gallery';
 import { RSVP } from './components/RSVP';
+import { GuestPhotos } from './components/GuestPhotos';
 import { OptionalDay } from './components/OptionalDay';
 import { Hotels } from './components/Hotels';
 import { Footer } from './components/Footer';
@@ -34,6 +35,7 @@ function GuestSite() {
         <Details variant={variant} />
         <RSVP />
         <Gallery />
+        <GuestPhotos />
         <OptionalDay />
         <Hotels />
       </main>

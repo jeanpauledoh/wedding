@@ -6,3 +6,10 @@ workers_dev = true
 # wrangler deploy uploads the script; the route + DNS proxy flip are manual steps
 # (see README "Manual steps"). To pin the route from here instead of the dashboard:
 #   routes = [{ pattern = "rjheiraten-berlin.de/*", zone_name = "rjheiraten-berlin.de" }]
+
+# Guest photo uploads. Create the bucket in the Cloudflare dashboard and enable its
+# R2.dev public access for viewing uploaded images (write goes only through the Worker).
+# The /api/upload and /api/gallery routes 404 if this binding is absent (feature off).
+[[r2_buckets]]
+binding = "PHOTOS"
+bucket_name = "wedding-guest-uploads"

@@ -95,3 +95,13 @@ export function MailIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function CameraIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="3" y="7" width="18" height="13" rx="2" />
+      <path d="M8 7l1.8-2.4A1.5 1.5 0 0 1 11 4h2a1.5 1.5 0 0 1 1.2.6L16 7" />
+      <circle cx="12" cy="13.5" r="3.5" />
+    </svg>
+  );
+}

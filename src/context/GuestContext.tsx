@@ -7,12 +7,15 @@ type GuestContextValue = {
   status: GuestStatus;
   variant: GuestVariant;
   name: string | null;
+  /** True when the Worker backend is wired to R2 and guests can upload/view photos. */
+  photos: boolean;
 };
 
 const GuestContext = createContext<GuestContextValue>({
   status: 'blocked',
   variant: 'vows',
-  name: null
+  name: null,
+  photos: false
 });
 
 function resolveGuest(): GuestContextValue {
@@ -21,19 +24,20 @@ function resolveGuest(): GuestContextValue {
     return {
       status: meta,
       variant: meta,
-      name: readMeta('wedding:name')
+      name: readMeta('wedding:name'),
+      photos: readMeta('wedding:photos') === 'on'
     };
   }
 
   if (isLocalhost()) {
     const override = new URLSearchParams(window.location.search).get('variant');
     if (isGuestVariant(override)) {
-      return { status: override, variant: override, name: null };
+      return { status: override, variant: override, name: null, photos: true };
     }
-    return { status: 'vows', variant: 'vows', name: null };
+    return { status: 'vows', variant: 'vows', name: null, photos: true };
   }
 
-  return { status: 'blocked', variant: 'vows', name: null };
+  return { status: 'blocked', variant: 'vows', name: null, photos: false };
 }
 
 export function GuestProvider({ children }: { children: ReactNode }) {
