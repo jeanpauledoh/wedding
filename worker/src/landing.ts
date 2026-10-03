@@ -40,9 +40,9 @@ export function landing(origin: string, error: boolean): string {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Raquel &amp; Jean-Paul — 11. Dezember 2026 · Berlin</title>
+<title>Raquel &amp; Jean-Paul · 11. Dezember 2026 · Berlin</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="Raquel &amp; Jean-Paul — We're Getting Married">
+<meta property="og:title" content="Raquel &amp; Jean-Paul">
 <meta property="og:description" content="An invitation from Raquel and Jean-Paul.">
 <meta property="og:image" content="${origin}/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">

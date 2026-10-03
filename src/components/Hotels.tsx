@@ -40,7 +40,7 @@ export function Hotels() {
       place: <Trans>Berlin Hauptbahnhof</Trans>,
       blurb: (
         <Trans>
-          A friendly hostel-hotel right by Berlin's main station — ideal if you arrive by train, with
+          A friendly hostel-hotel right by Berlin's main station. Ideal if you arrive by train, with
           a rooftop terrace bar and free WiFi.
         </Trans>
       ),

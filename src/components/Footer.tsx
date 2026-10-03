@@ -25,7 +25,7 @@ export function Footer() {
           Raquel &amp; Jean-Paul
         </p>
         <p className="footer-date">
-          {i18n.date(weddingDate, { year: 'numeric', month: 'long', day: 'numeric' })} — <Trans>Berlin</Trans>
+          {i18n.date(weddingDate, { year: 'numeric', month: 'long', day: 'numeric' })} · <Trans>Berlin</Trans>
         </p>
         <p className="footer-hash">#EverAndAlways</p>
 

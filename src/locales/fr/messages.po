@@ -18,28 +18,28 @@ msgid "'Sag mir wo die Blumen sind'"
 msgstr "'Sag mir wo die Blumen sind'"
 
 #: src/components/Details.tsx
-msgid "10:45 — registry office in Berlin Mitte"
-msgstr "10h45 — l'état civil à Berlin Mitte"
+msgid "10:45 · Registry office in Berlin Mitte"
+msgstr "10h45 · l'état civil à Berlin Mitte"
 
 #: src/components/Details.tsx
-msgid "12:30 — brunch with sparkling wine"
-msgstr "12h30 — brunch avec mousseux"
+msgid "12:30 · Brunch with sparkling wine"
+msgstr "12h30 · brunch avec mousseux"
 
 #: src/components/Footer.tsx
 msgid "2026 Raquel & Jean-Paul. Made with love."
 msgstr "2026 Raquel & Jean-Paul. Fait avec amour."
 
 #: src/components/Details.tsx
-msgid "5:00 PM — the wedding celebration"
-msgstr "17h00 — la fête de mariage"
+msgid "5:00 PM · The wedding celebration"
+msgstr "17h00 · la fête de mariage"
 
 #: src/components/Gallery.tsx
 msgid "A few of our favourite frames from the last 10 years. A hint of what the day will feel like."
 msgstr "Quelques-uns de nos cadres préférés des 10 dernières années. Un avant-goût de ce que sera la journée."
 
 #: src/components/Hotels.tsx
-msgid "A friendly hostel-hotel right by Berlin's main station — ideal if you arrive by train, with a rooftop terrace bar and free WiFi."
-msgstr "Une auberge-hôtel sympathique juste à côté de la gare principale de Berlin — idéal si vous arrivez en train, avec un bar sur la terrasse panoramique et du WiFi gratuit."
+msgid "A friendly hostel-hotel right by Berlin's main station. Ideal if you arrive by train, with a rooftop terrace bar and free WiFi."
+msgstr "Une auberge-hôtel sympathique juste à côté de la gare principale de Berlin. Idéal si vous arrivez en train, avec un bar sur la terrasse panoramique et du WiFi gratuit."
 
 #: src/components/OptionalDay.tsx
 msgid "A leisurely winter walk through one of Europe's most beautiful gardens before everyone heads home. Heated glasshouses keep the green alive even in December."
@@ -197,8 +197,8 @@ msgstr "Déposez vos photos ici ou appuyez pour choisir"
 #~ msgstr "Mise en table élégante avec couverts dorés et bougies"
 
 #: src/components/Details.tsx
-msgid "Festive elegant — red and black are welcome."
-msgstr "Élégant et festif — le rouge et le noir sont les bienvenus."
+msgid "Festive and elegant. Red and black are welcome."
+msgstr "Élégant et festif. Le rouge et le noir sont les bienvenus."
 
 #: src/components/Hotels.tsx
 msgid "For our guests travelling from further away, here are two options near our venues."
@@ -255,8 +255,8 @@ msgid "moments"
 msgstr "instants"
 
 #: src/components/GuestPhotos.tsx
-msgid "No photos yet — be the first!"
-msgstr "Pas encore de photos — soyez le premier !"
+msgid "No photos yet. Be the first!"
+msgstr "Pas encore de photos. Soyez le premier !"
 
 #: src/components/Details.tsx
 msgid "One day in Berlin, three beautiful chapters. Here is everything you need to know."
@@ -295,14 +295,14 @@ msgid "Primary"
 msgstr "Navigation principale"
 
 #: src/components/Blocked.tsx
-#: src/components/Header.tsx
-msgid "Raquel and Jean-Paul — home"
-msgstr "Raquel et Jean-Paul — accueil"
-
-#: src/components/Blocked.tsx
 #: src/components/Hero.tsx
 msgid "Raquel and Jean-Paul are getting married"
 msgstr "Raquel et Jean-Paul se marient"
+
+#: src/components/Blocked.tsx
+#: src/components/Header.tsx
+msgid "Raquel and Jean-Paul, home"
+msgstr "Raquel et Jean-Paul, accueil"
 
 #: src/components/Details.tsx
 msgid "Registry office in Berlin Mitte"

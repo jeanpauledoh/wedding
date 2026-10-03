@@ -213,7 +213,7 @@ export function GuestPhotos() {
             </div>
           ) : photosError ? null : (
             <p className="guest-photos-empty">
-              <Trans>No photos yet — be the first!</Trans>
+              <Trans>No photos yet. Be the first!</Trans>
             </p>
           )}
 
