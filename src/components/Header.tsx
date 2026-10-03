@@ -58,7 +58,7 @@ export function Header({ days }: HeaderProps) {
     <>
       <header className={stuck ? 'site-header is-stuck' : 'site-header'} id="siteHeader">
         <div className="container nav-wrap">
-          <a className="brand" href="#home" aria-label={t`Raquel and Jean-Paul — home`}>
+          <a className="brand" href="#home" aria-label={t`Raquel and Jean-Paul, home`}>
             Raquel <em>&amp;</em> Jean-Paul
           </a>
 

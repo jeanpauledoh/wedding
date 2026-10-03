@@ -35,7 +35,7 @@ export function Details({ variant }: DetailsProps) {
     title: <Trans>The Ceremony</Trans>,
     place: <Trans>Standesamt Berlin Mitte</Trans>,
     timeIcon: <CrownIcon />,
-    time: <Trans>10:45 — registry office in Berlin Mitte</Trans>,
+    time: <Trans>10:45 · Registry office in Berlin Mitte</Trans>,
     address: 'Parochialstraße 3, 10179 Berlin',
     blurb: (
       <Trans>
@@ -52,7 +52,7 @@ export function Details({ variant }: DetailsProps) {
     title: <Trans>The Brunch</Trans>,
     place: <Trans>'Sag mir wo die Blumen sind'</Trans>,
     timeIcon: <CocktailIcon />,
-    time: <Trans>12:30 — brunch with sparkling wine</Trans>,
+    time: <Trans>12:30 · Brunch with sparkling wine</Trans>,
     address: 'Albrechtstraße 9, 10117 Berlin',
     blurb: (
       <Trans>
@@ -69,7 +69,7 @@ export function Details({ variant }: DetailsProps) {
     title: <Trans>The Celebration</Trans>,
     place: <Trans>Restaurant 'Whitebird'</Trans>,
     timeIcon: <MusicIcon />,
-    time: <Trans>5:00 PM — the wedding celebration</Trans>,
+    time: <Trans>5:00 PM · The wedding celebration</Trans>,
     address: 'Albrechtstraße 18, 10117 Berlin',
     blurb: isParty ? (
       <Trans>
@@ -144,7 +144,7 @@ export function Details({ variant }: DetailsProps) {
           <strong>
             <Trans>Dress code:</Trans>
           </strong>{' '}
-          <Trans>Festive elegant — red and black are welcome.</Trans>
+          <Trans>Festive and elegant. Red and black are welcome.</Trans>
         </p>
       </div>
     </section>
