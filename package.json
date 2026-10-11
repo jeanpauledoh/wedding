@@ -14,6 +14,7 @@
     "gen:tokens": "node scripts/gen-tokens.mjs",
     "gen:qr": "node scripts/gen-qr.mjs",
     "verify-token": "node scripts/verify-token.mjs",
+    "gifts:upload": "node scripts/upload-gifts.mjs",
     "worker:dev": "wrangler dev --config worker/wrangler.toml",
     "deploy:worker": "wrangler deploy --config worker/wrangler.toml"
   },

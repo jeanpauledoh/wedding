@@ -10,6 +10,9 @@ dist/
 # Real guest list (do not commit personal data)
 resources/guests.csv
 
+# Working copy of the gift registry (source for `npm run gifts:upload`)
+resources/gifts.json
+
 # Worker local secrets
 worker/.dev.vars
 

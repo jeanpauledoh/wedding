@@ -6,6 +6,10 @@ interface Env {
   ORIGIN?: string;
   /** R2 bucket for guest photo uploads. Absent while the feature is disabled. */
   PHOTOS?: R2Bucket;
+  /** R2 bucket holding the gift registry document. Absent while the feature is off. */
+  GIFTS?: R2Bucket;
+  /** Shared secret guarding the gift registry admin route. */
+  GIFT_ADMIN_SECRET?: string;
   /** "true" enables the downloadable ZIP album endpoint /api/album. */
   GALLERY_ENABLED?: string;
 }
@@ -20,6 +24,11 @@ const COOKIE_MAX_AGE = 60 * 60 * 24 * 60; // 60 days
 
 // Paths the landing page needs that are safe to serve without a token.
 const PUBLIC_PATH = /^\/(hero\.jpg|favicon\.(ico|png)|robots\.txt)$/;
+
+const GIFTS_PATH = '/api/gifts';
+const GIFT_ADMIN_PATH = '/api/gifts/admin';
+const GIFT_ADMIN_HEADER = 'x-gift-admin-key';
+const GIFT_REGISTRY_KEY = 'registry/gifts.json';
 
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
@@ -49,8 +58,12 @@ export default {
       return html(landing(url.origin, true), 200);
     }
 
-    // 2) Valid session cookie -> serve the app (injecting variant meta on HTML)
-    // or handle guest API routes.
+    // 2) Guest routes. The admin upload is a maintenance call from the local
+    // script, so it authenticates with its own secret instead of a guest cookie.
+    if (url.pathname === GIFT_ADMIN_PATH) {
+      return handleGiftRegistryAdmin(request, env);
+    }
+
     const cookieToken = getCookie(request, COOKIE_NAME);
     if (cookieToken) {
       const guest = await verifyToken(cookieToken, env.TOKEN_SECRET);
@@ -66,6 +79,9 @@ export default {
         }
         if (url.pathname === '/api/album' && request.method === 'GET') {
           return handleAlbum(env);
+        }
+        if (url.pathname === GIFTS_PATH && request.method === 'GET') {
+          return handleGiftRegistry(env);
         }
         return proxyOrigin(request, guest, origin, Boolean(env.PHOTOS));
       }
@@ -287,6 +303,123 @@ async function handleAlbum(env: Env): Promise<Response> {
       'cache-control': 'no-store'
     }
   });
+}
+
+interface GiftRegistry {
+  items: GiftItem[];
+}
+
+interface GiftItem {
+  id: string;
+  title: Record<string, string>;
+  description: Record<string, string>;
+  link?: string | null;
+  active?: boolean;
+}
+
+async function handleGiftRegistry(env: Env): Promise<Response> {
+  const registry = await readGiftRegistry(env);
+  if (!registry.ok) return registry.response;
+  return json({ ok: true, registry: registry.registry }, 200);
+}
+
+async function handleGiftRegistryAdmin(request: Request, env: Env): Promise<Response> {
+  const presented = request.headers.get(GIFT_ADMIN_HEADER);
+  if (!isAdminAuthorized(presented, env.GIFT_ADMIN_SECRET)) {
+    return json({ ok: false, error: 'Unauthorized' }, 401);
+  }
+
+  if (request.method === 'GET') return handleGiftRegistry(env);
+
+  if (request.method !== 'POST') {
+    return json({ ok: false, error: 'Method not allowed' }, 405);
+  }
+
+  let payload: unknown;
+  try {
+    payload = await request.json();
+  } catch {
+    return json({ ok: false, error: 'Expected JSON body' }, 400);
+  }
+
+  const registry = parseGiftRegistry(payload);
+  if (!registry) return json({ ok: false, error: 'Invalid gift registry' }, 400);
+
+  await writeGiftRegistry(env, registry);
+  return json({ ok: true, count: registry.items.length }, 200);
+}
+
+function isAdminAuthorized(presented: string | null, secret: string | undefined): boolean {
+  if (!secret || !presented) return false;
+  return timingSafeEqual(presented, secret);
+}
+
+async function readGiftRegistry(
+  env: Env
+): Promise<{ ok: true; registry: GiftRegistry } | { ok: false; response: Response }> {
+  if (!env.GIFTS) return { ok: false, response: json({ ok: false, error: 'Gifts are disabled' }, 404) };
+
+  const object = await env.GIFTS.get(GIFT_REGISTRY_KEY);
+  if (!object) return { ok: false, response: json({ ok: false, error: 'Gift list not published yet' }, 404) };
+
+  const registry = parseGiftRegistry(await readJsonBody(object));
+  if (!registry) return { ok: false, response: json({ ok: false, error: 'Stored gift list is invalid' }, 500) };
+  return { ok: true, registry };
+}
+
+async function writeGiftRegistry(env: Env, registry: GiftRegistry): Promise<void> {
+  await env.GIFTS!.put(GIFT_REGISTRY_KEY, JSON.stringify(registry), {
+    httpMetadata: { contentType: 'application/json' }
+  });
+}
+
+async function readJsonBody(object: R2ObjectBody): Promise<unknown> {
+  try {
+    return JSON.parse(await object.text());
+  } catch {
+    return null;
+  }
+}
+
+function parseGiftRegistry(payload: unknown): GiftRegistry | null {
+  if (!isRecord(payload)) return null;
+  if (!Array.isArray(payload.items)) return null;
+
+  const items: GiftItem[] = [];
+  const seenIds = new Set<string>();
+
+  for (const candidate of payload.items) {
+    const item = parseGiftItem(candidate);
+    if (!item || seenIds.has(item.id)) return null;
+    seenIds.add(item.id);
+    items.push(item);
+  }
+
+  return { items };
+}
+
+function parseGiftItem(candidate: unknown): GiftItem | null {
+  if (!isRecord(candidate)) return null;
+  if (typeof candidate.id !== 'string' || !candidate.id) return null;
+  if (!isLocalizedText(candidate.title)) return null;
+  if (!isLocalizedText(candidate.description)) return null;
+
+  return {
+    id: candidate.id,
+    title: candidate.title,
+    description: candidate.description,
+    link: typeof candidate.link === 'string' ? candidate.link : null,
+    active: candidate.active !== false
+  };
+}
+
+function isLocalizedText(value: unknown): value is Record<string, string> {
+  if (!isRecord(value)) return false;
+  return Object.values(value).every((text) => typeof text === 'string');
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
 }
 
 function extensionFor(type: string): string {

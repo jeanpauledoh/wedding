@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useLingui } from '@lingui/react';
 import { t } from '@lingui/core/macro';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useScrollSpy } from '../hooks/useScrollSpy';
+import { useGifts } from '../context/GiftContext';
 
-const NAV_SECTIONS = ['home', 'details', 'gallery'] as const;
+const BASE_SECTIONS = ['home', 'details', 'gallery'] as const;
 
 type HeaderProps = {
   days: number;
@@ -12,15 +13,22 @@ type HeaderProps = {
 
 export function Header({ days }: HeaderProps) {
   useLingui();
+  const { enabled: giftsEnabled } = useGifts();
 
   const [stuck, setStuck] = useState(false);
   const [open, setOpen] = useState(false);
-  const activeId = useScrollSpy(NAV_SECTIONS);
+  // Stable identity: useScrollSpy rebuilds its observer when the array changes.
+  const sections = useMemo(
+    () => (giftsEnabled ? [...BASE_SECTIONS, 'gifts' as const] : BASE_SECTIONS),
+    [giftsEnabled]
+  );
+  const activeId = useScrollSpy(sections);
 
   const labels = {
     home: t`Home`,
     details: t`Details`,
-    gallery: t`Gallery`
+    gallery: t`Gallery`,
+    gifts: t`Gifts`
   };
 
   useEffect(() => {
@@ -64,7 +72,7 @@ export function Header({ days }: HeaderProps) {
 
           <nav aria-label={t`Primary`}>
             <ul className={open ? 'nav-menu open' : 'nav-menu'} id="navMenu">
-              {NAV_SECTIONS.map((id) => (
+              {sections.map((id) => (
                 <li key={id}>
                   <a href={`#${id}`} className={activeId === id ? 'active' : ''} onClick={closeMenu}>
                     {labels[id]}

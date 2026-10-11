@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "id": "espresso-machine",
+      "title": {
+        "en": "Espresso machine",
+        "de": "Espresso - Siebträgermaschine",
+        "fr": "Machine à espresso"
+      },
+      "description": {
+        "en": "For the slow mornings in our kitchen.",
+        "de": "Für die langsamen Morgen in unserer Küche.",
+        "fr": "Pour les matins tranquilles dans notre cuisine."
+      },
+      "link": null,
+      "active": true
+    },
+    {
+      "id": "butcher-block",
+      "title": {
+        "en": "A nice butcher block",
+        "de": "Ein schönes Hackbrett",
+        "fr": "Une belle planche à découper"
+      },
+      "description": {
+        "en": "A solid board we will use every day.",
+        "de": "Ein solides Brett, das wir täglich benutzen.",
+        "fr": "Une planche solide que nous utiliserons chaque jour."
+      },
+      "link": null,
+      "active": true
+    },
+    {
+      "id": "dutch-oven",
+      "title": {
+        "en": "Enamelled Dutch oven",
+        "de": "Emalierter Dutchoven",
+        "fr": "Cocotte en fonte émaillée"
+      },
+      "description": {
+        "en": "For long, cosy dinners at home.",
+        "de": "Für lange, gemütliche Abende zu Hause.",
+        "fr": "Pour de longs dîners conviviaux à la maison."
+      },
+      "link": null,
+      "active": true
+    }
+  ]
+}

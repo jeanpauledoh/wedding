@@ -33,6 +33,11 @@ msgstr "2026 Raquel & Jean-Paul. Mit Liebe gemacht."
 msgid "5:00 PM · The wedding celebration"
 msgstr "17:00 Uhr · Das Hochzeitsfest"
 
+#: src/components/GiftConsent.tsx
+#: src/components/Gifts.tsx
+msgid "A few gift inspirations"
+msgstr "Ein paar Geschenkinspirationen"
+
 #: src/components/Gallery.tsx
 msgid "A few of our favourite frames from the last 10 years. A hint of what the day will feel like."
 msgstr "Ein paar unserer liebsten Bilder aus den letzten 10 Jahren. Ein Vorgeschmack darauf, wie sich der Tag anfühlen wird."
@@ -40,6 +45,10 @@ msgstr "Ein paar unserer liebsten Bilder aus den letzten 10 Jahren. Ein Vorgesch
 #: src/components/Hotels.tsx
 msgid "A friendly hostel-hotel right by Berlin's main station. Ideal if you arrive by train, with a rooftop terrace bar and free WiFi."
 msgstr "Ein freundliches Hostel-Hotel direkt am Berliner Hauptbahnhof. Ideal für die Anreise mit dem Zug, mit Rooftop-Terrassenbar und kostenlosem WLAN."
+
+#: src/components/Gifts.tsx
+msgid "A Gift for Our Future"
+msgstr "Ein Geschenk für unsere Zukunft"
 
 #: src/components/OptionalDay.tsx
 msgid "A leisurely winter walk through one of Europe's most beautiful gardens before everyone heads home. Heated glasshouses keep the green alive even in December."
@@ -88,6 +97,10 @@ msgstr "Ein Abend mit Abendessen, Drinks und Tanzen in Berlin. Hier findet ihr a
 #: src/components/OptionalDay.tsx
 msgid "An optional little extra for anyone who would love to spend more time together."
 msgstr "Ein optionales Extra für alle, die gerne noch etwas mehr Zeit miteinander verbringen möchten."
+
+#: src/components/Gifts.tsx
+#~ msgid "As we think about what our next chapter together will look like, we are especially happy about contributions to shared experiences, our future home, and little adventures for two."
+#~ msgstr "Da wir gerade überlegen, wie unser gemeinsames nächstes Kapitel aussehen wird, freuen wir uns besonders über Beiträge zu gemeinsamen Erlebnissen, unseren zukünftigen Wohnträumen und kleinen Abenteuern zu zweit."
 
 #: src/components/Hotels.tsx
 msgid "B&B Hotel Berlin-Mitte"
@@ -144,6 +157,7 @@ msgstr "Feier im Restaurant Whitebird"
 msgid "Ceremony"
 msgstr "Zeremonie"
 
+#: src/components/Gifts.tsx
 #: src/components/GuestPhotos.tsx
 #: src/components/ItineraryModal.tsx
 msgid "Close"
@@ -210,9 +224,30 @@ msgstr "Für unsere Gäste, die von weiter her anreisen: Hier sind zwei Unterkü
 msgid "Gallery"
 msgstr "Galerie"
 
+#: src/components/GiftConsent.tsx
+msgid "Generally we would be very happy about a monetary contribution to get a bit closer to the dream of owning a house or apartment."
+msgstr "Grundsätzlich freuen wir uns sehr über einen finanziellen Beitrag, der uns ein Stück näher an den Traum von einem eigenen Haus oder einer eigenen Wohnung bringt."
+
 #: src/components/ItineraryModal.tsx
 msgid "Get Directions"
 msgstr "Route anzeigen"
+
+#: src/components/Gifts.tsx
+msgid "Gift ideas"
+msgstr "Geschenkideen"
+
+#: src/components/Gifts.tsx
+#~ msgid "gift list"
+#~ msgstr "Geschenkliste"
+
+#: src/components/Gifts.tsx
+#~ msgid "Gift list"
+#~ msgstr "Geschenkliste"
+
+#: src/components/Footer.tsx
+#: src/components/Header.tsx
+msgid "Gifts"
+msgstr "Geschenke"
 
 #: src/components/Header.tsx
 msgid "Home"
@@ -242,6 +277,10 @@ msgstr "Königin-Luise-Straße 6-8, 14195 Berlin"
 msgid "Little Glimpses"
 msgstr "Kleine Einblicke"
 
+#: src/components/Gifts.tsx
+msgid "Loading the list…"
+msgstr "Die Liste wird geladen…"
+
 #: src/components/GuestPhotos.tsx
 msgid "Loading your photos…"
 msgstr "Fotos werden geladen…"
@@ -258,6 +297,10 @@ msgstr "Momente"
 msgid "No photos yet. Be the first!"
 msgstr "Noch keine Fotos. Mach den Anfang!"
 
+#: src/components/Gifts.tsx
+msgid "Of course, personal ideas and surprises are welcome too. Please do not feel obliged to anything!"
+msgstr "Natürlich sind auch persönliche Ideen und Überraschungen herzlich willkommen. Bitte fühlt euch zu nichts verpflichtet!"
+
 #: src/components/Details.tsx
 msgid "One day in Berlin, three beautiful chapters. Here is everything you need to know."
 msgstr "Ein Tag in Berlin, drei wunderschöne Kapitel. Hier ist alles, was ihr wissen müsst."
@@ -273,6 +316,10 @@ msgstr "Einladung öffnen"
 #: src/components/OptionalDay.tsx
 msgid "Optional"
 msgstr "Optional"
+
+#: src/components/Gifts.tsx
+#~ msgid "Our Wishes"
+#~ msgstr "Unsere Wünsche"
 
 #: src/components/Gallery.tsx
 #~ msgid "Pair of gold wedding bands on a velvet cushion"
@@ -312,6 +359,22 @@ msgstr "Standesamt in Berlin Mitte"
 msgid "Remove photo"
 msgstr "Foto entfernen"
 
+#: src/components/Gifts.tsx
+#~ msgid "Reserve this"
+#~ msgstr "Reservieren"
+
+#: src/components/Gifts.tsx
+#~ msgid "Reserved"
+#~ msgstr "Reserviert"
+
+#: src/components/Gifts.tsx
+#~ msgid "Reserving an item is anonymous. It only hides it for everyone else so no one gifts us the same thing twice."
+#~ msgstr "Eine Reservierung bleibt anonym. Das Item wird für alle anderen nur ausgeblendet, damit niemand zweimal dasselbe schenkt."
+
+#: src/components/Gifts.tsx
+#~ msgid "Reserving…"
+#~ msgstr "Wird reserviert…"
+
 #: src/components/Details.tsx
 msgid "Restaurant 'Whitebird'"
 msgstr "Restaurant 'Whitebird'"
@@ -340,6 +403,10 @@ msgstr "Zu den Details scrollen"
 msgid "Seconds"
 msgstr "Sekunden"
 
+#: src/components/Gifts.tsx
+msgid "See it in a shop"
+msgstr "Im Shop ansehen"
+
 #: src/components/RSVP.tsx
 msgid "Send"
 msgstr "Senden"
@@ -356,6 +423,10 @@ msgstr "Teile deine Fotos"
 msgid "Skip to content"
 msgstr "Zum Inhalt springen"
 
+#: src/components/GiftConsent.tsx
+#~ msgid "Something more specific? View the list"
+#~ msgstr "Etwas Bestimmtes? Die Liste ansehen"
+
 #: src/components/GuestPhotos.tsx
 msgid "Something went wrong. Please try again."
 msgstr "Etwas ist schiefgelaufen. Bitte versuche es erneut."
@@ -367,6 +438,18 @@ msgstr "Standesamt Berlin Mitte"
 #: src/components/GuestPhotos.tsx
 msgid "Thank you! Your photos are on their way to our album."
 msgstr "Danke! Deine Fotos sind auf dem Weg in unser Album."
+
+#: src/components/Gifts.tsx
+#~ msgid "That did not work. Please try again."
+#~ msgstr "Das hat leider nicht geklappt. Bitte versuch es noch einmal."
+
+#: src/components/Gifts.tsx
+msgid "The best part for us is celebrating this special day with you. If you would like to give us something beyond that, we are delighted by a financial contribution that brings us a step closer to the dream of owning a house or apartment."
+msgstr "Das Schönste für uns ist, diesen besonderen Tag mit euch zu feiern. Wenn ihr uns darüber hinaus etwas schenken möchtet, freuen wir uns über einen finanziellen Beitrag der uns ein Stück näher an den Traum von einem eigenen Haus oder einer eigenen Wohnung bringt."
+
+#: src/components/Gifts.tsx
+#~ msgid "The best part for us is celebrating this special day with you. If you would like to give us something beyond that, we are delighted by ideas from our small wish list."
+#~ msgstr "Das Schönste für uns ist, diesen besonderen Tag mit euch zu feiern. Wenn ihr uns darüber hinaus etwas schenken möchtet, freuen wir uns über Inspirationen aus unserer kleinen Wunschliste."
 
 #: src/components/Details.tsx
 msgid "The Brunch"
@@ -397,13 +480,25 @@ msgstr "Der Tag danach"
 msgid "The Details"
 msgstr "Die Details"
 
+#: src/components/Gifts.tsx
+msgid "The gift list is not available right now."
+msgstr "Die Geschenkliste ist gerade nicht verfügbar."
+
 #: src/components/Details.tsx
 msgid "The grand finale: dinner, drinks and dancing at Restaurant Whitebird. After the ceremony and brunch, we celebrate into the night with our closest family and friends."
 msgstr "Das große Finale: Abendessen, Drinks und Tanzen im Restaurant Whitebird. Nach der Trauung und dem Brunch feiern wir mit unserer engsten Familie und unseren Freunden bis in die Nacht."
 
+#: src/components/Gifts.tsx
+msgid "The list is being updated. Please check back soon."
+msgstr "Die Liste wird gerade aktualisiert. Schau bald wieder vorbei."
+
 #: src/components/Details.tsx
 msgid "the party"
 msgstr "die Party"
+
+#: src/components/GiftConsent.tsx
+msgid "Thinking about what to gift us?"
+msgstr "Du denkst darüber nach, was wir uns schenken lassen könnten?"
 
 #: src/components/Blocked.tsx
 msgid "This invite is private. Enter the code from your invitation to continue."
@@ -434,6 +529,10 @@ msgstr "Wird hochgeladen…"
 msgid "Us, somewhere in the great outdoors"
 msgstr "Wir, irgendwo in der Natur"
 
+#: src/components/Gifts.tsx
+#~ msgid "View gift list"
+#~ msgstr "Geschenkliste ansehen"
+
 #: src/components/GuestPhotos.tsx
 msgid "View photo"
 msgstr "Foto ansehen"
@@ -441,6 +540,10 @@ msgstr "Foto ansehen"
 #: src/components/Gallery.tsx
 #~ msgid "Warm candlelight glowing across a dinner table"
 #~ msgstr "Warmes Kerzenlicht über einer Abendtafel"
+
+#: src/components/Gifts.tsx
+#~ msgid "We would be happy about a monetary contribution towards our dream of a home. Prefer something more specific? Have a look at the list."
+#~ msgstr "Wir freuen uns über einen finanziellen Beitrag für unseren Traum von einem Zuhause. Lieber etwas Bestimmtes? Schau in die Liste."
 
 #: src/components/Hotels.tsx
 msgid "Website"
@@ -453,6 +556,10 @@ msgstr "wo übernachten"
 #: src/components/Hotels.tsx
 msgid "Where to Stay"
 msgstr "Wo übernachten"
+
+#: src/components/Gifts.tsx
+msgid "with love"
+msgstr "mit Liebe"
 
 #: src/components/RSVP.tsx
 msgid "Your message"
