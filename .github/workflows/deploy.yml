@@ -37,6 +37,8 @@ jobs:
           VITE_GOOGLE_MAPS_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
           VITE_SITE_URL: ${{ secrets.VITE_SITE_URL }}
           VITE_GALLERY_ENABLED: ${{ secrets.GALLERY_ENABLED }}
+          VITE_RSVP_EMAIL: ${{ secrets.VITE_RSVP_EMAIL }}
+          VITE_RSVP_CC: ${{ secrets.VITE_RSVP_CC }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

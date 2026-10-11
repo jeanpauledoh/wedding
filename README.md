@@ -170,8 +170,10 @@ npm run deploy:worker -- --dry-run
 
 Pushing to `main` runs `.github/workflows/deploy.yml`: it builds the app for
 GitHub Pages, uploads the artifact, **and** deploys + secret‑sets the Worker.
-The workflow needs four repo secrets: `VITE_SITE_URL`, `TOKEN_SECRET`,
-`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+The workflow needs the following repo secrets: `VITE_SITE_URL`, `TOKEN_SECRET`,
+`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, plus `VITE_RSVP_EMAIL` and
+`VITE_RSVP_CC` for the RSVP mailto links (without the RSVP ones the built
+`mailto:` has no recipient).
 (See the worker code for where `VITE_SITE_URL` is used by the app.)
 
 Follow this order — the route must exist **before** DNS flips to Proxied,
