@@ -4,11 +4,14 @@ import { Details } from './components/Details';
 import { Gallery } from './components/Gallery';
 import { RSVP } from './components/RSVP';
 import { GuestPhotos } from './components/GuestPhotos';
+import { Gifts } from './components/Gifts';
+import { GiftConsent } from './components/GiftConsent';
 import { OptionalDay } from './components/OptionalDay';
 import { Hotels } from './components/Hotels';
 import { Footer } from './components/Footer';
 import { Blocked } from './components/Blocked';
 import { GuestProvider, useGuest } from './context/GuestContext';
+import { GiftProvider } from './context/GiftContext';
 import { useCountdown } from './hooks/useCountdown';
 import { useReveal } from './hooks/useReveal';
 import { Trans } from '@lingui/react/macro';
@@ -36,10 +39,12 @@ function GuestSite() {
         <RSVP />
         <Gallery />
         <GuestPhotos />
+        <Gifts />
         <OptionalDay />
         <Hotels />
       </main>
       <Footer />
+      <GiftConsent />
     </>
   );
 }
@@ -47,7 +52,9 @@ function GuestSite() {
 export default function App() {
   return (
     <GuestProvider>
-      <GuestSite />
+      <GiftProvider>
+        <GuestSite />
+      </GiftProvider>
     </GuestProvider>
   );
 }

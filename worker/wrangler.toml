@@ -13,3 +13,10 @@ workers_dev = true
 [[r2_buckets]]
 binding = "PHOTOS"
 bucket_name = "wedding-guest-uploads"
+
+# Gift registry: a single JSON document (items + reservations) written by
+# `npm run gifts:upload`. The /api/gifts routes 404 if this binding is absent
+# (feature off). Keep the bucket private; everything goes through the Worker.
+[[r2_buckets]]
+binding = "GIFTS"
+bucket_name = "wedding-gift-registry"

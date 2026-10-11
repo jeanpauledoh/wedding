@@ -1,16 +1,25 @@
+import { useMemo } from 'react';
 import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { t } from '@lingui/core/macro';
 import { FloralBranch } from './FloralBranch';
+import { useGifts } from '../context/GiftContext';
 
-const FOOTER_SECTIONS = ['details', 'gallery'] as const;
+const BASE_SECTIONS = ['details', 'gallery'] as const;
 
 export function Footer() {
   const { i18n } = useLingui();
+  const { enabled: giftsEnabled } = useGifts();
+
+  const sections = useMemo(
+    () => (giftsEnabled ? [...BASE_SECTIONS, 'gifts' as const] : BASE_SECTIONS),
+    [giftsEnabled]
+  );
 
   const labels = {
     details: t`Details`,
-    gallery: t`Gallery`
+    gallery: t`Gallery`,
+    gifts: t`Gifts`
   };
 
   const weddingDate = new Date('2026-12-11T10:45:00');
@@ -30,7 +39,7 @@ export function Footer() {
         <p className="footer-hash">#EverAndAlways</p>
 
         <ul className="footer-nav">
-          {FOOTER_SECTIONS.map((id) => (
+          {sections.map((id) => (
             <li key={id}>
               <a href={`#${id}`}>{labels[id]}</a>
             </li>

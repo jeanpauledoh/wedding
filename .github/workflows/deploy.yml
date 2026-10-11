@@ -39,6 +39,7 @@ jobs:
           VITE_GALLERY_ENABLED: ${{ secrets.GALLERY_ENABLED }}
           VITE_RSVP_EMAIL: ${{ secrets.VITE_RSVP_EMAIL }}
           VITE_RSVP_CC: ${{ secrets.VITE_RSVP_CC }}
+          VITE_GIFTS_ENABLED: ${{ secrets.GIFTS_ENABLED }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -75,6 +76,15 @@ jobs:
         run: |
           if [ -n "$GALLERY_ENABLED_SECRET" ]; then
             echo "$GALLERY_ENABLED_SECRET" | npx wrangler secret put GALLERY_ENABLED --config worker/wrangler.toml
+          fi
+
+      - name: Set GIFT_ADMIN_SECRET worker secret
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "${{ secrets.GIFT_ADMIN_SECRET }}" ]; then
+            echo "${{ secrets.GIFT_ADMIN_SECRET }}" | npx wrangler secret put GIFT_ADMIN_SECRET --config worker/wrangler.toml
           fi
 
       - name: Deploy Worker

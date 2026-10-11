@@ -63,12 +63,16 @@ scripts/           offline guest/token tooling (Node, no deps)
   gen-tokens.mjs   mint tokens from resources/guests.csv
   gen-qr.mjs       SVG/PNG QR codes + printable sheet from tokens
   verify-token.mjs validate generated links
+  upload-gifts.mjs publish resources/gifts.json to the Worker's R2 registry
   lib/token.mjs    signing/parsing (base64url + HMAC-SHA256)
   lib/env.mjs      env + CSV helpers
 resources/
   guests-example.csv  template for your real guest list
   guests.csv          REAL guest list — gitignored, never commit
+  gifts-example.json  template for the gift list
+  gifts.json          your gift list — gitignored, never commit
 resources/qr/      generated tokens/QR codes — gitignored
+plugins/           dev-only Vite middleware (mocks the gift routes locally)
 src/               the app: GuestContext reads the injected meta tags
 ```
 
@@ -86,6 +90,12 @@ default. To preview the party layout:
 npm run dev
 open "http://localhost:5173/?variant=party"   # localhost only
 ```
+
+The gift list runs locally too: a dev-only middleware
+(`plugins/gift-registry-dev-api.ts`) serves `/api/gifts` straight from
+`resources/gifts.json`, so you can edit items without R2, an invite token, or
+`VITE_GIFTS_ENABLED`. The file is re-read on every request, so just edit and
+reload. Uploaded guest photos are *not* mocked, that still needs `wrangler dev`.
 
 ## Guest tokens & QR codes
 
@@ -111,6 +121,85 @@ open "http://localhost:5173/?variant=party"   # localhost only
 
 > ⚠️ Everything minted ends up inside `resources/` which is gitignored. Make
 > the repo private if you want the source + tooling out of sight too.
+
+## Gift list
+
+Guests see a "Thinking about what to gift us?" prompt on their first visit, plus
+a **Gift List** section. The list is purely **inspiration**: it is not a hard wish
+list and nothing can be reserved, so the same item can appear for every guest. A
+short note above the list welcomes a monetary contribution towards our future
+home and makes clear there is no obligation. The list is authored locally in
+`resources/gifts.json` and published to the Worker on demand.
+
+### How it is stored
+
+One JSON document lives in a private R2 bucket (`GIFTS`, bucket
+`wedding-gift-registry`) under the key `registry/gifts.json`. Same persistence
+approach as the photo uploads: read/write only through the Worker, never public.
+
+```jsonc
+{
+  "items": [
+    {
+      "id": "espresso-machine",       // stable, unique
+      "title":       { "en": "…", "de": "…", "fr": "…" },
+      "description": { "en": "…", "de": "…", "fr": "…" },
+      "link": null,                   // optional shop link
+      "active": true                  // false hides the item from guests
+    }
+  ]
+}
+```
+
+Titles and descriptions are per locale; the app falls back to `en`, then to any
+locale present. `resources/gifts.json` is gitignored, so the live copy is the only
+thing guests ever see. `resources/gifts.example.json` is the committed template.
+
+### Editing and publishing
+
+1. Copy the template once, then edit it:
+
+   ```bash
+   cp resources/gifts.example.json resources/gifts.json
+   ```
+
+2. Publish (validates, then `POST`s to `/api/gifts/admin`):
+
+   ```bash
+   npm run gifts:upload
+   ```
+
+   The published list replaces the stored one. There is no reservation state to
+   preserve, so an edit is just a straight overwrite.
+
+### Setup (once)
+
+```bash
+# Worker secret shared by the app's script and the admin route
+echo "<openssl rand -hex 32>" | npx wrangler secret put GIFT_ADMIN_SECRET --config worker/wrangler.toml
+
+# Same value in .env.local (used by npm run gifts:upload)
+GIFT_ADMIN_SECRET=<same value>
+
+# Repo secrets for CI
+#   GIFTS_ENABLED      -> passed to the build as VITE_GIFTS_ENABLED
+#   GIFT_ADMIN_SECRET  -> pushed to the Worker on deploy
+```
+
+Then create the bucket `wedding-gift-registry` in the Cloudflare dashboard (the
+`GIFTS` binding is already declared in `worker/wrangler.toml`), set
+`VITE_GIFTS_ENABLED=true` in the build environment, and run
+`npm run gifts:upload`. Without the binding or the flag the whole feature stays
+hidden. For local iteration you can skip all of this: `npm run dev` serves the
+same route from `resources/gifts.json`.
+
+### Routes
+
+| Route | Auth | Purpose |
+|---|---|---|
+| `GET /api/gifts` | guest cookie | the published gift list |
+| `GET /api/gifts/admin` | `x-gift-admin-key` | read the stored list |
+| `POST /api/gifts/admin` | `x-gift-admin-key` | replace the stored list |
 
 ## Production build
 
@@ -173,7 +262,8 @@ GitHub Pages, uploads the artifact, **and** deploys + secret‑sets the Worker.
 The workflow needs the following repo secrets: `VITE_SITE_URL`, `TOKEN_SECRET`,
 `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, plus `VITE_RSVP_EMAIL` and
 `VITE_RSVP_CC` for the RSVP mailto links (without the RSVP ones the built
-`mailto:` has no recipient).
+`mailto:` has no recipient). Add `GIFTS_ENABLED` and
+`GIFT_ADMIN_SECRET` too if you use the gift list.
 (See the worker code for where `VITE_SITE_URL` is used by the app.)
 
 Follow this order — the route must exist **before** DNS flips to Proxied,
