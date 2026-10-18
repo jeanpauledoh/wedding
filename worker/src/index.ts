@@ -26,9 +26,21 @@ const COOKIE_MAX_AGE = 60 * 60 * 24 * 60; // 60 days
 const PUBLIC_PATH = /^\/(hero\.jpg|favicon\.(ico|png)|robots\.txt)$/;
 
 const GIFTS_PATH = '/api/gifts';
+const GIFT_RESERVE_PATH = '/api/gifts/reserve';
 const GIFT_ADMIN_PATH = '/api/gifts/admin';
 const GIFT_ADMIN_HEADER = 'x-gift-admin-key';
+// The admin reservations route: the bare path clears everything, a trailing
+// id segment clears just that gift.
+const GIFT_ADMIN_RESERVATIONS_RE = /^\/api\/gifts\/admin\/reservations(\/[^/]+)?$/;
 const GIFT_REGISTRY_KEY = 'registry/gifts.json';
+
+// Reservations live in their own object: the admin publish rewrites the
+// registry wholesale, so storing them there would lose every reservation.
+const GIFT_RESERVATIONS_KEY = 'registry/reservations.json';
+
+// R2 has no locks, so a first-come-first-served write is a conditional put on
+// the etag we read. Losing a race means re-reading and trying again.
+const RESERVE_MAX_ATTEMPTS = 3;
 
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
@@ -63,6 +75,10 @@ export default {
     if (url.pathname === GIFT_ADMIN_PATH) {
       return handleGiftRegistryAdmin(request, env);
     }
+    // /api/gifts/admin/reservations clears all, .../reservations/<id> one.
+    if (GIFT_ADMIN_RESERVATIONS_RE.test(url.pathname)) {
+      return handleGiftReservationsAdmin(url.pathname, request, env);
+    }
 
     const cookieToken = getCookie(request, COOKIE_NAME);
     if (cookieToken) {
@@ -82,6 +98,9 @@ export default {
         }
         if (url.pathname === GIFTS_PATH && request.method === 'GET') {
           return handleGiftRegistry(env);
+        }
+        if (url.pathname === GIFT_RESERVE_PATH && request.method === 'POST') {
+          return handleGiftReserve(request, env);
         }
         return proxyOrigin(request, guest, origin, Boolean(env.PHOTOS));
       }
@@ -320,7 +339,76 @@ interface GiftItem {
 async function handleGiftRegistry(env: Env): Promise<Response> {
   const registry = await readGiftRegistry(env);
   if (!registry.ok) return registry.response;
-  return json({ ok: true, registry: registry.registry }, 200);
+
+  // Reservations are anonymous: only the timestamp is kept, never who took it.
+  const reservations = await readGiftReservations(env);
+  const taken = reservations.ok ? reservations.data.reservations : {};
+  const items = registry.registry.items.map((item) => ({
+    ...item,
+    reserved: Object.hasOwn(taken, item.id)
+  }));
+
+  return json({ ok: true, registry: { items } }, 200);
+}
+
+// Reserves a gift for the guest holding the cookie. First come, first served:
+// the write is conditional on the document we read, so a concurrent reservation
+// loses the race instead of silently overwriting the winner.
+async function handleGiftReserve(request: Request, env: Env): Promise<Response> {
+  if (!env.GIFTS) return json({ ok: false, error: 'Gifts are disabled' }, 404);
+
+  let payload: unknown;
+  try {
+    payload = await request.json();
+  } catch {
+    return json({ ok: false, error: 'Expected JSON body' }, 400);
+  }
+  const id = isRecord(payload) && typeof payload.id === 'string' ? payload.id : '';
+  if (!id) return json({ ok: false, error: 'Expected an item id' }, 400);
+
+  const registry = await readGiftRegistry(env);
+  if (!registry.ok) return registry.response;
+  if (!registry.registry.items.some((item) => item.id === id && item.active !== false)) {
+    return json({ ok: false, error: 'Unknown gift' }, 404);
+  }
+
+  const result = await updateReservations(env, (current) => {
+    if (Object.hasOwn(current.reservations, id)) return conflict(409, 'already_reserved');
+    return write({
+      reservations: { ...current.reservations, [id]: { reservedAt: new Date().toISOString() } }
+    });
+  });
+
+  if (!result.ok) return json({ ok: false, error: result.error }, result.status);
+  return json({ ok: true, reservations: result.reservations }, 200);
+}
+
+async function handleGiftReservationsAdmin(
+  pathname: string,
+  request: Request,
+  env: Env
+): Promise<Response> {
+  const presented = request.headers.get(GIFT_ADMIN_HEADER);
+  if (!isAdminAuthorized(presented, env.GIFT_ADMIN_SECRET)) {
+    return json({ ok: false, error: 'Unauthorized' }, 401);
+  }
+  if (request.method !== 'DELETE') {
+    return json({ ok: false, error: 'Method not allowed' }, 405);
+  }
+
+  const match = pathname.match(GIFT_ADMIN_RESERVATIONS_RE);
+  const id = match?.[1] ? decodeURIComponent(match[1].slice(1)) : '';
+
+  const result = await updateReservations(env, (current) => {
+    if (!id) return write({ reservations: {} }); // bare path frees everything
+    if (!Object.hasOwn(current.reservations, id)) return conflict(404, 'Not reserved');
+    const reservations = { ...current.reservations };
+    delete reservations[id];
+    return write({ reservations });
+  });
+
+  if (!result.ok) return json({ ok: false, error: result.error }, result.status);
+  return json({ ok: true, reservations: result.reservations }, 200);
 }
 
 async function handleGiftRegistryAdmin(request: Request, env: Env): Promise<Response> {
@@ -329,7 +417,17 @@ async function handleGiftRegistryAdmin(request: Request, env: Env): Promise<Resp
     return json({ ok: false, error: 'Unauthorized' }, 401);
   }
 
-  if (request.method === 'GET') return handleGiftRegistry(env);
+  if (request.method === 'GET') {
+    // The couple's view: the list plus what has been taken, and when.
+    const registry = await readGiftRegistry(env);
+    if (!registry.ok) return registry.response;
+    const reservations = await readGiftReservations(env);
+    if (!reservations.ok) return json({ ok: false, error: 'Stored reservations are invalid' }, 500);
+    return json(
+      { ok: true, registry: registry.registry, reservations: reservations.data.reservations },
+      200
+    );
+  }
 
   if (request.method !== 'POST') {
     return json({ ok: false, error: 'Method not allowed' }, 405);
@@ -371,6 +469,103 @@ async function writeGiftRegistry(env: Env, registry: GiftRegistry): Promise<void
   await env.GIFTS!.put(GIFT_REGISTRY_KEY, JSON.stringify(registry), {
     httpMetadata: { contentType: 'application/json' }
   });
+}
+
+interface Reservation {
+  reservedAt: string;
+}
+
+interface GiftReservations {
+  reservations: Record<string, Reservation>;
+}
+
+// Deciding what to store, separated from storing it so the guest route and the
+// admin route share one concurrency-safe write path.
+type ReservationDecision =
+  | { kind: 'write'; reservations: GiftReservations }
+  | { kind: 'conflict'; status: number; error: string };
+
+type ReservationResult =
+  | { ok: true; reservations: Record<string, Reservation> }
+  | { ok: false; status: number; error: string };
+
+function write(reservations: GiftReservations): ReservationDecision {
+  return { kind: 'write', reservations };
+}
+
+function conflict(status: number, error: string): ReservationDecision {
+  return { kind: 'conflict', status, error };
+}
+
+// Read, decide, conditionally write; repeat when another request landed in
+// between. R2 has no transactions, so this loop is the whole guarantee.
+async function updateReservations(
+  env: Env,
+  decide: (current: GiftReservations) => ReservationDecision
+): Promise<ReservationResult> {
+  for (let attempt = 0; attempt < RESERVE_MAX_ATTEMPTS; attempt++) {
+    const current = await readGiftReservations(env);
+    if (!current.ok) {
+      return { ok: false, status: 500, error: 'Stored reservations are invalid' };
+    }
+
+    const decision = decide(current.data);
+    if (decision.kind === 'conflict') {
+      return { ok: false, status: decision.status, error: decision.error };
+    }
+
+    if (await writeGiftReservations(env, decision.reservations, current.etag)) {
+      return { ok: true, reservations: decision.reservations.reservations };
+    }
+  }
+  return { ok: false, status: 409, error: 'Try again' };
+}
+
+// A missing object reads as "nothing reserved yet" rather than an error, so the
+// bucket never needs seeding by hand.
+async function readGiftReservations(
+  env: Env
+): Promise<{ ok: true; data: GiftReservations; etag: string | null } | { ok: false }> {
+  if (!env.GIFTS) return { ok: false };
+
+  const object = await env.GIFTS.get(GIFT_RESERVATIONS_KEY);
+  if (!object) return { ok: true, data: { reservations: {} }, etag: null };
+
+  const parsed = parseGiftReservations(await readJsonBody(object));
+  if (!parsed) return { ok: false };
+  return { ok: true, data: parsed, etag: object.etag };
+}
+
+// Returns false when the precondition failed, which means someone else wrote
+// first and the caller should re-read rather than assume it won.
+async function writeGiftReservations(
+  env: Env,
+  reservations: GiftReservations,
+  etag: string | null
+): Promise<boolean> {
+  const onlyIf =
+    etag === null
+      // Nothing stored yet. If-None-Match: * succeeds only while the object is
+      // absent, so two guests racing for the very first write cannot both win.
+      ? new Headers({ 'if-none-match': '*' })
+      : { etagMatches: etag };
+
+  const written = await env.GIFTS!.put(GIFT_RESERVATIONS_KEY, JSON.stringify(reservations), {
+    onlyIf,
+    httpMetadata: { contentType: 'application/json' }
+  });
+  return written !== null;
+}
+
+function parseGiftReservations(payload: unknown): GiftReservations | null {
+  if (!isRecord(payload) || !isRecord(payload.reservations)) return null;
+
+  const reservations: Record<string, Reservation> = {};
+  for (const [id, entry] of Object.entries(payload.reservations)) {
+    if (!isRecord(entry) || typeof entry.reservedAt !== 'string') return null;
+    reservations[id] = { reservedAt: entry.reservedAt };
+  }
+  return { reservations };
 }
 
 async function readJsonBody(object: R2ObjectBody): Promise<unknown> {
