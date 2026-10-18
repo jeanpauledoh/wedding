@@ -6,6 +6,7 @@ export interface GiftItem {
   description: LocalizedText;
   link: string | null;
   active: boolean;
+  reserved: boolean;
 }
 
 export interface GiftRegistry {
@@ -26,6 +27,21 @@ export async function fetchGiftRegistry(signal?: AbortSignal): Promise<GiftRegis
   return parseGiftRegistry(payload.registry);
 }
 
+/** A reservation is first come, first served, so "taken" is an expected outcome. */
+export type ReserveOutcome = 'reserved' | 'taken';
+
+export async function reserveGift(id: string): Promise<ReserveOutcome> {
+  const response = await fetch('/api/gifts/reserve', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ id })
+  });
+
+  if (response.status === 409) return 'taken';
+  if (!response.ok) throw new Error(`Gift reservation failed (${response.status})`);
+  return 'reserved';
+}
+
 function parseGiftRegistry(value: unknown): GiftRegistry {
   if (!isRecord(value) || !Array.isArray(value.items)) {
     throw new Error('Unexpected gift registry payload');
@@ -42,7 +58,8 @@ function parseGiftItem(value: unknown): GiftItem {
     title: value.title,
     description: isLocalizedText(value.description) ? value.description : {},
     link: typeof value.link === 'string' ? value.link : null,
-    active: value.active !== false
+    active: value.active !== false,
+    reserved: value.reserved === true
   };
 }
 

@@ -1,17 +1,23 @@
 import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useGifts } from '../context/GiftContext';
 import { localize } from '../lib/gifts';
 import { GiftIcon } from './Icons';
 import { SectionHead } from './SectionHead';
 
+// Shown under the list after a reservation attempt, so the guest gets an
+// answer without the dialog closing on them.
+type Notice = 'reserved' | 'taken' | 'error' | null;
+
 export function Gifts() {
   const { i18n } = useLingui();
   const locale = i18n.locale;
 
-  const { enabled, status, items, isListOpen, openList, closeList } = useGifts();
+  const { enabled, status, items, isListOpen, openList, closeList, isReserving, reserve } =
+    useGifts();
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const [notice, setNotice] = useState<Notice>(null);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -22,7 +28,25 @@ export function Gifts() {
 
   if (!enabled) return null;
 
-  const availableItems = items.filter((item) => item.active);
+  // Reserved items stay visible so guests can see the list being worked
+  // through, rather than their favourite silently disappearing.
+  const shownItems = items.filter((item) => item.active);
+  const availableCount = shownItems.filter((item) => !item.reserved).length;
+
+  const onReserve = async (id: string) => {
+    setNotice(null);
+    try {
+      const outcome = await reserve(id);
+      setNotice(outcome === 'reserved' ? 'reserved' : 'taken');
+    } catch {
+      setNotice('error');
+    }
+  };
+
+  const dismiss = () => {
+    setNotice(null);
+    closeList();
+  };
 
   return (
     <section className="section" id="gifts" aria-labelledby="gifts-title">
@@ -61,7 +85,7 @@ export function Gifts() {
         className="gift-dialog"
         aria-labelledby="gift-ideas-title"
         onClick={(event) => {
-          if (event.target === dialogRef.current) closeList();
+          if (event.target === dialogRef.current) dismiss();
         }}
       >
         <div className="gift-modal">
@@ -81,24 +105,49 @@ export function Gifts() {
             </p>
           )}
 
-          {status === 'ready' && availableItems.length === 0 && (
+          {status === 'ready' && shownItems.length > 0 && availableCount === 0 && (
             <p className="gift-empty">
-              <Trans>The list is being updated. Please check back soon.</Trans>
+              <Trans>Everything has been reserved. Thank you all so much!</Trans>
             </p>
           )}
 
-          {status === 'ready' && availableItems.length > 0 && (
+          {status === 'ready' && shownItems.length > 0 && (
             <ul className="gift-items">
-              {availableItems.map((item) => {
+              {shownItems.map((item) => {
                 const description = localize(item.description, locale);
                 return (
-                  <li key={item.id} className="gift-item">
+                  <li
+                    key={item.id}
+                    className={item.reserved ? 'gift-item gift-item--reserved' : 'gift-item'}
+                  >
                     <h4>{localize(item.title, locale)}</h4>
                     {description && <p className="gift-item-text">{description}</p>}
-                    {item.link && (
-                      <a className="gift-item-link" href={item.link} target="_blank" rel="noopener noreferrer">
-                        <Trans>See it in a shop</Trans>
-                      </a>
+
+                    {item.reserved ? (
+                      <p className="gift-item-badge">
+                        <Trans>Reserved</Trans>
+                      </p>
+                    ) : (
+                      <>
+                        {item.link && (
+                          <a
+                            className="gift-item-link"
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Trans>See it in a shop</Trans>
+                          </a>
+                        )}
+                        <button
+                          type="button"
+                          className="btn-ec btn-ec--gold"
+                          onClick={() => void onReserve(item.id)}
+                          disabled={isReserving}
+                        >
+                          {isReserving ? <Trans>Reserving…</Trans> : <Trans>Reserve</Trans>}
+                        </button>
+                      </>
                     )}
                   </li>
                 );
@@ -106,8 +155,24 @@ export function Gifts() {
             </ul>
           )}
 
+          {notice === 'reserved' && (
+            <p className="gift-notice gift-notice--good" role="status">
+              <Trans>It is yours. Thank you, that means a lot to us!</Trans>
+            </p>
+          )}
+          {notice === 'taken' && (
+            <p className="gift-notice" role="status">
+              <Trans>Sorry, someone reserved this one just before you.</Trans>
+            </p>
+          )}
+          {notice === 'error' && (
+            <p className="gift-notice" role="alert">
+              <Trans>That did not go through. Please try again.</Trans>
+            </p>
+          )}
+
           <div className="gift-modal-actions">
-            <button type="button" className="btn-ec btn-ec--ghost" onClick={closeList}>
+            <button type="button" className="btn-ec btn-ec--ghost" onClick={dismiss}>
               <Trans>Close</Trans>
             </button>
           </div>

@@ -210,6 +210,10 @@ msgstr "Drop your photos here or tap to choose"
 #~ msgid "Elegant table setting with gold flatware and taper candles"
 #~ msgstr "Elegant table setting with gold flatware and taper candles"
 
+#: src/components/Gifts.tsx
+msgid "Everything has been reserved. Thank you all so much!"
+msgstr "Everything has been reserved. Thank you all so much!"
+
 #: src/components/Details.tsx
 msgid "Festive and elegant. Red and black are welcome."
 msgstr "Festive and elegant. Red and black are welcome."
@@ -264,6 +268,10 @@ msgstr "if you feel like it"
 #: src/components/Blocked.tsx
 msgid "Invitation code"
 msgstr "Invitation code"
+
+#: src/components/Gifts.tsx
+msgid "It is yours. Thank you, that means a lot to us!"
+msgstr "It is yours. Thank you, that means a lot to us!"
 
 #: src/components/GuestPhotos.tsx
 msgid "JPG, PNG, WebP or HEIC · up to 20 photos"
@@ -360,20 +368,24 @@ msgid "Remove photo"
 msgstr "Remove photo"
 
 #: src/components/Gifts.tsx
+msgid "Reserve"
+msgstr "Reserve"
+
+#: src/components/Gifts.tsx
 #~ msgid "Reserve this"
 #~ msgstr "Reserve this"
 
 #: src/components/Gifts.tsx
-#~ msgid "Reserved"
-#~ msgstr "Reserved"
+msgid "Reserved"
+msgstr "Reserved"
 
 #: src/components/Gifts.tsx
 #~ msgid "Reserving an item is anonymous. It only hides it for everyone else so no one gifts us the same thing twice."
 #~ msgstr "Reserving an item is anonymous. It only hides it for everyone else so no one gifts us the same thing twice."
 
 #: src/components/Gifts.tsx
-#~ msgid "Reserving…"
-#~ msgstr "Reserving…"
+msgid "Reserving…"
+msgstr "Reserving…"
 
 #: src/components/Details.tsx
 msgid "Restaurant 'Whitebird'"
@@ -431,6 +443,10 @@ msgstr "Skip to content"
 msgid "Something went wrong. Please try again."
 msgstr "Something went wrong. Please try again."
 
+#: src/components/Gifts.tsx
+msgid "Sorry, someone reserved this one just before you."
+msgstr "Sorry, someone reserved this one just before you."
+
 #: src/components/Details.tsx
 msgid "Standesamt Berlin Mitte"
 msgstr "Standesamt Berlin Mitte"
@@ -438,6 +454,10 @@ msgstr "Standesamt Berlin Mitte"
 #: src/components/GuestPhotos.tsx
 msgid "Thank you! Your photos are on their way to our album."
 msgstr "Thank you! Your photos are on their way to our album."
+
+#: src/components/Gifts.tsx
+msgid "That did not go through. Please try again."
+msgstr "That did not go through. Please try again."
 
 #: src/components/Gifts.tsx
 #~ msgid "That did not work. Please try again."
@@ -489,8 +509,8 @@ msgid "The grand finale: dinner, drinks and dancing at Restaurant Whitebird. Aft
 msgstr "The grand finale: dinner, drinks and dancing at Restaurant Whitebird. After the ceremony and brunch, we celebrate into the night with our closest family and friends."
 
 #: src/components/Gifts.tsx
-msgid "The list is being updated. Please check back soon."
-msgstr "The list is being updated. Please check back soon."
+#~ msgid "The list is being updated. Please check back soon."
+#~ msgstr "The list is being updated. Please check back soon."
 
 #: src/components/Details.tsx
 msgid "the party"

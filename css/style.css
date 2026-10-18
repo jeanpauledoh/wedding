@@ -1072,6 +1072,21 @@ body::before {
 .gift-item-text { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.55; }
 .gift-item-link { font-size: .82rem; color: var(--wine); }
 .gift-item-link:hover { color: var(--gold); }
+.gift-item--reserved { background: var(--blush); border-style: dashed; }
+.gift-item--reserved h4 { color: var(--muted); }
+.gift-item-badge {
+  margin: 0;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--wine);
+  border: 1px solid var(--blush-deep);
+  border-radius: 999px;
+  padding: .18rem .7rem;
+}
+.gift-modal .btn-ec:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+.gift-notice { margin: 0; font-size: .92rem; line-height: 1.55; color: var(--muted); text-align: center; }
+.gift-notice--good { color: var(--wine); }
 .gift-empty { margin: 0; color: var(--muted); font-size: .92rem; font-style: italic; text-align: center; }
 .gift-modal-actions { display: flex; justify-content: flex-end; gap: .8rem; }
 @media (max-width: 420px) {
